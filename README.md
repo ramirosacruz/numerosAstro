@@ -2,8 +2,10 @@
 
 # Ejecutar test
 
+Generales
+
 ```bash
-$ gcc src/test/general.c && a.out
+$ gcc src/test/tst_general.c && ./a.out
 ```
 
 ## Documentación
