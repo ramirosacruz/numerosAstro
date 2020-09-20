@@ -13,7 +13,7 @@ int longitudDeArreglo(const char* puntero){
     int longitud = 0;
     while(*puntero != '\0'){
         longitud ++;
-        *puntero ++;
+        *(puntero ++);
     }
     return longitud;
 }
