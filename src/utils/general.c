@@ -1,3 +1,5 @@
+#include "general.h"
+
 char enteroACaracter(int numero){
     return numero + '0';
 }
