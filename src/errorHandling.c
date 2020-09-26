@@ -12,6 +12,9 @@ Esta operación equivale a: EsCadenaNula ∨ EsCadenaInvalida ∨ EsOverflow
 #include <stdio.h>
 #include <stdlib.h>
 
+#define VERDADERO 1
+#define FALSO 0
+
 typedef struct {
 const char* entero;
 int longitudError;
@@ -30,57 +33,40 @@ int longitudDeArreglo(const char* puntero){
     }
     return longitud;
 }
+
 int esSecuenciaNula(NumeroAstronomico nro){
-    int bool;
-    if(longitudDeArreglo(nro.entero)){
-        bool = 0;
-        return bool;
-    }
-    else{
-        bool = 1;
-        return bool;
-    }  
+    if(longitudDeArreglo(nro.entero))
+        return VERDADERO;
+    else
+        return FALSO;  
 }
 
 int esOverFlow(NumeroAstronomico nro){
-    int bool;
-    if(longitudDeArreglo(nro.entero) <= 100){
-        bool = 0;
-        return bool;
-    }
-    else{
-        bool = 1;
-        return bool;
-    }  
+    if(longitudDeArreglo(nro.entero) <= 100)
+        return FALSO;
+    else
+        return VERDADERO;  
 }
 
 int esSecuenciaInvalida(NumeroAstronomico nro){
-    int bool = 0;
     while(*nro.entero != '\0'){
-        int caracter;
-        caracter = caracterAEntero(*nro.entero);
-        if (caracter < 0 || caracter > 9){
-            bool = 1;
-            return bool;
-        }
+        int entero;
+        entero = caracterAEntero(*nro.entero);
+        if (entero < 0 || entero > 9)
+            return VERDADERO;
         *nro.entero++;
     }
-    return bool;
+    return FALSO;
 }
 
 int esError(NumeroAstronomico nro){
-    int bool;
     int error1 = esSecuenciaNula(nro);
     int error2 = esSecuenciaInvalida(nro);
     int error3 = esOverFlow(nro);
-    if(error1 + error2 + error3){
-        bool = 1;
-        return bool;
-    }
-    else{
-        bool = 0;
-        return bool;
-    }  
+    if(error1 + error2 + error3)
+        return VERDADERO;
+    else
+        return FALSO; 
 }
 
 int main(){

@@ -7,6 +7,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#define VERDADERO 1
+#define FALSO 0
+
 typedef struct {
 const char* entero;
 int longitudError;
@@ -27,29 +30,27 @@ int longitudDeArreglo(const char* puntero){
 }
 
 int esMenor(NumeroAstronomico primerNro, NumeroAstronomico segundoNro){
-    int bool = 1;
     if(primerNro.longitudError < segundoNro.longitudError)
-        return bool;
+        return VERDADERO;
     else{
         if(primerNro.longitudError == segundoNro.longitudError){
             if(*primerNro.entero < *segundoNro.entero)
-                return bool;    
+                return VERDADERO;    
         } 
-        return bool = 0;    
+        return FALSO;    
     }
 }
 
 int sonIguales(NumeroAstronomico primerNro, NumeroAstronomico segundoNro){
-    int bool = 0;
     if(primerNro.longitudError != segundoNro.longitudError)
-        return bool;
+        return FALSO;
     else{
         while(*primerNro.entero != '\0'){
             if(*primerNro.entero != *segundoNro.entero)
-                return bool;
+                return FALSO;
             *primerNro.entero ++;
             *segundoNro.entero ++;
         }
-        return bool = 1;
+        return VERDADERO;
     }
 }
