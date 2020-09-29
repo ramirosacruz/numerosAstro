@@ -8,12 +8,6 @@
 #include <stdlib.h>
 #include <general.h>
 
-int caracterAEntero(char caracter){
-    int x = caracter + 0;
-    return x - 48;
-}
-
-
 int esMenor(NumeroAstronomico primerNro, NumeroAstronomico segundoNro){
     if(primerNro.longitudError < segundoNro.longitudError)
         return true;
