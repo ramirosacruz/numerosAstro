@@ -7,14 +7,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define VERDADERO 1
-#define FALSO 0
-
-typedef struct {
-const char* entero;
-int longitudError;
-} NumeroAstronomico;
-
 int caracterAEntero(char caracter){
     int x = caracter + 0;
     return x - 48;
@@ -31,26 +23,26 @@ int longitudDeArreglo(const char* puntero){
 
 int esMenor(NumeroAstronomico primerNro, NumeroAstronomico segundoNro){
     if(primerNro.longitudError < segundoNro.longitudError)
-        return VERDADERO;
+        return true;
     else{
         if(primerNro.longitudError == segundoNro.longitudError){
             if(*primerNro.entero < *segundoNro.entero)
-                return VERDADERO;    
+                return true;    
         } 
-        return FALSO;    
+        return false;    
     }
 }
 
 int sonIguales(NumeroAstronomico primerNro, NumeroAstronomico segundoNro){
     if(primerNro.longitudError != segundoNro.longitudError)
-        return FALSO;
+        return false;
     else{
         while(*primerNro.entero != '\0'){
             if(*primerNro.entero != *segundoNro.entero)
-                return FALSO;
+                return false;
             *primerNro.entero ++;
             *segundoNro.entero ++;
         }
-        return VERDADERO;
+        return true;
     }
 }
