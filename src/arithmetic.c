@@ -7,6 +7,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <general.h>
+#include <arithmetic.h>
+
 
 int esMenor(NumeroAstronomico primerNro, NumeroAstronomico segundoNro){
     if(primerNro.longitudError < segundoNro.longitudError)
