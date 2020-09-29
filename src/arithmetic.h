@@ -10,11 +10,7 @@ typedef struct {
     int longitudError;
 } NumeroAstronomico;
 
-char caracterAEntero(int numero);
-
-int longitudDeArreglo(char caracter);
-
-int esMenor(const char* puntero);
+int esMenor(NumeroAstronomico primerNro, NumeroAstronomico segundoNro);
 
 int sonIguales(NumeroAstronomico primerNro, NumeroAstronomico segundoNro);
 

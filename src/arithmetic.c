@@ -6,20 +6,13 @@
 */
 #include <stdio.h>
 #include <stdlib.h>
+#include <general.h>
 
 int caracterAEntero(char caracter){
     int x = caracter + 0;
     return x - 48;
 }
 
-int longitudDeArreglo(const char* puntero){
-    int longitud = 0;
-    while(*puntero != '\0'){
-        longitud ++;
-        *puntero ++;
-    }
-    return longitud;
-}
 
 int esMenor(NumeroAstronomico primerNro, NumeroAstronomico segundoNro){
     if(primerNro.longitudError < segundoNro.longitudError)
