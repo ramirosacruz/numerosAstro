@@ -11,9 +11,7 @@ Esta operación equivale a: EsCadenaNula ∨ EsCadenaInvalida ∨ EsOverflow
 */
 #include <stdio.h>
 #include <stdlib.h>
-
-#define VERDADERO 1
-#define FALSO 0
+#include <general.h>
 
 typedef struct {
 const char* entero;
@@ -36,16 +34,16 @@ int longitudDeArreglo(const char* puntero){
 
 int esSecuenciaNula(NumeroAstronomico nro){
     if(longitudDeArreglo(nro.entero))
-        return VERDADERO;
+        return true;
     else
-        return FALSO;  
+        return false;  
 }
 
 int esOverFlow(NumeroAstronomico nro){
     if(longitudDeArreglo(nro.entero) <= 100)
-        return FALSO;
+        return false;
     else
-        return VERDADERO;  
+        return true;  
 }
 
 int esSecuenciaInvalida(NumeroAstronomico nro){
@@ -53,10 +51,10 @@ int esSecuenciaInvalida(NumeroAstronomico nro){
         int entero;
         entero = caracterAEntero(*nro.entero);
         if (entero < 0 || entero > 9)
-            return VERDADERO;
+            return true;
         *nro.entero++;
     }
-    return FALSO;
+    return false;
 }
 
 int esError(NumeroAstronomico nro){
@@ -64,9 +62,9 @@ int esError(NumeroAstronomico nro){
     int error2 = esSecuenciaInvalida(nro);
     int error3 = esOverFlow(nro);
     if(error1 + error2 + error3)
-        return VERDADERO;
+        return true;
     else
-        return FALSO; 
+        return false; 
 }
 
 int main(){
