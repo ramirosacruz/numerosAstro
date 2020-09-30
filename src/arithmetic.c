@@ -6,8 +6,8 @@
 */
 #include <stdio.h>
 #include <stdlib.h>
-#include <general.h>
-#include <arithmetic.h>
+#include "./utils/general.h"
+#include "arithmetic.h"
 
 
 int esMenor(NumeroAstronomico primerNro, NumeroAstronomico segundoNro){
@@ -35,3 +35,17 @@ int sonIguales(NumeroAstronomico primerNro, NumeroAstronomico segundoNro){
         return true;
     }
 }
+
+/* 
+NumeroAstronomico sumar(NumeroAstronomico primerNro, NumeroAstronomico segundoNro){
+    NumeroAstronomico nuevoNA;
+    nuevoNA.entero = "";
+    nuevoNA.longitudError = 0;
+    while(*primerNro.entero != '\0'){
+        *primerNro.entero += segundoNro.entero
+        *primerNro.entero ++;
+        *segundoNro.entero ++;
+    }
+    return true;
+}
+  */
