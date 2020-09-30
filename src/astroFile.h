@@ -6,9 +6,11 @@ typedef struct {
     int longitudError;
 } NumeroAstronomico;
 
-int esMenor(NumeroAstronomico primerNro, NumeroAstronomico segundoNro);
+NumeroAstronomico read(FILE* flujo);
+FILE* write(NumeroAstronomico nroAstronomico,FILE* flujo);
 
-int sonIguales(NumeroAstronomico primerNro, NumeroAstronomico segundoNro);
+NumeroAstronomico scan(FILE* flujo);
+FILE* print(NumeroAstronomico nroAstronomico,FILE* flujo);
 
 #include "astroFile.c"
 #endif
