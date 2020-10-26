@@ -50,6 +50,20 @@ int esError(NumeroAstronomico nro){
         return FALSE; 
 }
 
+int getTipoDeError(NumeroAstronomico nro){
+    if(esSecuenciaNula(nro))
+        return SECUENCIA_NULA;
+    if(esOverFlow(nro)){
+        if(esSecuenciaInvalida(nro))
+            return DOBLE_ERROR;
+        else
+            return OVER_FLOW;
+    }
+    if(esSecuenciaInvalida(nro))
+        return SECUENCIA_INVALIDA;
+    return FALSE;
+}
+
 int main(){
     
     return 0;
