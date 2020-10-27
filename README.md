@@ -8,6 +8,12 @@ Generales
 $ gcc src/test/tst_general.c && ./a.out
 ```
 
+Funciones ariméticas
+
+```bash
+$ gcc src/test/tst_arithmetic.c && ./a.out
+```
+
 ## Documentación
 
 - Consigna: https://drive.google.com/file/d/1ROieFk5yjYR4HFBPBFCCWw8kOtCY3PIB/view?usp=sharing
