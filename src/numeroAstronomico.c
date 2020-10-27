@@ -15,6 +15,7 @@
 NumeroAstronomico crearDesdeCadena(char* cadena){
     NumeroAstronomico numeroNuevo;
     numeroNuevo.entero = cadena;
+    printf("%s \n",numeroNuevo.entero);
     if (esError(numeroNuevo)){
         numeroNuevo.longitudError = getTipoDeError(numeroNuevo);
         printError(numeroNuevo);

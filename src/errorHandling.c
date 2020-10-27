@@ -15,9 +15,9 @@ Esta operación equivale a: EsCadenaNula ∨ EsCadenaInvalida ∨ EsOverflow
 
 int esSecuenciaNula(NumeroAstronomico nro){
     if(longitudDeArreglo(nro.entero))
-        return TRUE;
+        return FALSE;
     else
-        return FALSE;  
+        return TRUE;  
 }
 
 int esOverFlow(NumeroAstronomico nro){
