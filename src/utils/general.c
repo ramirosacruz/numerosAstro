@@ -9,11 +9,10 @@ int caracterAEntero(char caracter){
     return x - 48;
 }//Esta funcion te devuelve el ASCII del caracter menos 48 asi que si pones letras o simbolos tambien te va a devolver un numero tenelo en cuenta.
 
-int longitudDeArreglo(const char* puntero){
+int longitudDeArreglo(const char* cadena){
     int longitud = 0;
-    while(*puntero != '\0'){
-        longitud ++;
-        *puntero ++;
+    while (cadena[longitud] != 0) {
+    longitud++;
     }
     return longitud;
 }

@@ -16,11 +16,11 @@ int main()
 void test_sonIguales(){
     NumeroAstronomico miNumero;
     miNumero.entero = "120";
-    miNumero.longitudError = 1000;
+    miNumero.longitudError = 3;
 
     NumeroAstronomico otroNumero;
-    otroNumero.entero = "820";
-    otroNumero.longitudError = 1000;
+    otroNumero.entero = "220";
+    otroNumero.longitudError = 3;
          
     assert(esMenor(miNumero, otroNumero)); 
 }
