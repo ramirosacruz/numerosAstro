@@ -12,13 +12,14 @@ int main()
 {
     NumeroAstronomico a = crearDesdeCadena("100");
     NumeroAstronomico b = crearDesdeCadena("200");
-    
+
     test_esMenor();
     test_sumar();
     test_sonIguales();
 }
-  
-void test_sonIguales(){
+
+void test_sonIguales()
+{
     NumeroAstronomico a;
     a.entero = "220";
     a.longitudError = 3;
@@ -26,8 +27,8 @@ void test_sonIguales(){
     NumeroAstronomico b;
     b.entero = "220";
     b.longitudError = 3;
-         
-    assert(sonIguales(a, b)); 
+
+    assert(sonIguales(a, b));
 
     NumeroAstronomico c;
     c.entero = "220";
@@ -36,29 +37,25 @@ void test_sonIguales(){
     NumeroAstronomico d;
     d.entero = "230";
     d.longitudError = 3;
-         
-    assert(!sonIguales(c, d)); 
+
+    assert(!sonIguales(c, d));
 }
 
-  
-void test_esMenor(){
-    NumeroAstronomico a = crearDesdeCadena("100");
-    NumeroAstronomico b = crearDesdeCadena("200");
-    assert(!esMenor(a, b)); 
+void test_esMenor()
+{
+    NumeroAstronomico a = crearDesdeCadena("200");
+    NumeroAstronomico b = crearDesdeCadena("201");
+    assert(esMenor(a, b));
 
-    NumeroAstronomico c;
-    c.entero = "200";
-    c.longitudError = 7;
+    NumeroAstronomico c = crearDesdeCadena("203");
+    NumeroAstronomico d = crearDesdeCadena("202");
 
-    NumeroAstronomico d;
-    d.entero = "322";
-    d.longitudError = 7;
-         
-    assert(esMenor(c, d));
+    assert(!esMenor(c, d));
 }
 
-void test_sumar(){
-   /*  NumeroAstronomico miNumero;
+void test_sumar()
+{
+    /*  NumeroAstronomico miNumero;
     miNumero.entero = "120";
     miNumero.longitudError = 10;
 
@@ -70,4 +67,3 @@ void test_sumar(){
     printf("->es %c \n", *miNumero.entero);
     assert(miNumero.entero == "10"); */
 }
- 

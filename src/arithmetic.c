@@ -13,39 +13,44 @@
 /**
  * @return se evalua si primerNro es menor al segundoNro
 */
-int esMenor(NumeroAstronomico primerNro, NumeroAstronomico segundoNro){
-    if(primerNro.longitudError < segundoNro.longitudError)
+int esMenor(NumeroAstronomico primerNro, NumeroAstronomico segundoNro)
+{
+    if (primerNro.longitudError < segundoNro.longitudError)
         return TRUE;
-    else{
-        if(primerNro.longitudError == segundoNro.longitudError){
-            while(*primerNro.entero != '\0'){
-                /* if(*primerNro.entero < *segundoNro.entero)
-                    return TRUE; */
-                primerNro.entero ++;
-                segundoNro.entero ++;
+    else
+    {
+        if (primerNro.longitudError == segundoNro.longitudError)
+        {
+            while (*primerNro.entero != '\0')
+            {
+                if (*primerNro.entero < *segundoNro.entero)
+                    return TRUE;
+                primerNro.entero++;
+                segundoNro.entero++;
                 printf("%c", *segundoNro.entero);
             }
-               
-        } 
-        return FALSE;    
+        }
+        return FALSE;
     }
 }
-
 
 /**
  * @return se determina el valor de verdad si primerNro y segundoNro si:
  *  1) tienen igualdad en cuanto longitud
  *  2) si los dígitos coinciden
 */
-int sonIguales(NumeroAstronomico primerNro, NumeroAstronomico segundoNro){
-    if(primerNro.longitudError != segundoNro.longitudError)
+int sonIguales(NumeroAstronomico primerNro, NumeroAstronomico segundoNro)
+{
+    if (primerNro.longitudError != segundoNro.longitudError)
         return FALSE;
-    else{
-        while(*primerNro.entero != '\0'){
-            if(*primerNro.entero != *segundoNro.entero)
+    else
+    {
+        while (*primerNro.entero != '\0')
+        {
+            if (*primerNro.entero != *segundoNro.entero)
                 return FALSE;
-            primerNro.entero ++;
-            segundoNro.entero ++;
+            primerNro.entero++;
+            segundoNro.entero++;
         }
         return TRUE;
     }
