@@ -11,15 +11,21 @@
 #include "./numeroAstronomico.h"
 
 /**
- * @return se evalua si primerNuro es menor al segundoNro
+ * @return se evalua si primerNro es menor al segundoNro
 */
 int esMenor(NumeroAstronomico primerNro, NumeroAstronomico segundoNro){
     if(primerNro.longitudError < segundoNro.longitudError)
         return TRUE;
     else{
         if(primerNro.longitudError == segundoNro.longitudError){
-            if(*primerNro.entero < *segundoNro.entero)
-                return TRUE;    
+            while(*primerNro.entero != '\0'){
+                /* if(*primerNro.entero < *segundoNro.entero)
+                    return TRUE; */
+                primerNro.entero ++;
+                segundoNro.entero ++;
+                printf("%c", *segundoNro.entero);
+            }
+               
         } 
         return FALSE;    
     }

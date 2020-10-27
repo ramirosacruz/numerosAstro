@@ -10,6 +10,9 @@ void test_sonIguales();
 
 int main()
 {
+    NumeroAstronomico a = crearDesdeCadena("100");
+    NumeroAstronomico b = crearDesdeCadena("200");
+    
     test_esMenor();
     test_sumar();
     test_sonIguales();
@@ -39,15 +42,9 @@ void test_sonIguales(){
 
   
 void test_esMenor(){
-    NumeroAstronomico a;
-    a.entero = "1120";
-    a.longitudError = 1000;
-
-    NumeroAstronomico b;
-    b.entero = "820";
-    b.longitudError = 1000;
-         
-    assert(esMenor(a, b)); 
+    NumeroAstronomico a = crearDesdeCadena("100");
+    NumeroAstronomico b = crearDesdeCadena("200");
+    assert(!esMenor(a, b)); 
 
     NumeroAstronomico c;
     c.entero = "200";
@@ -55,9 +52,9 @@ void test_esMenor(){
 
     NumeroAstronomico d;
     d.entero = "322";
-    d.longitudError = 5;
+    d.longitudError = 7;
          
-    assert(esMenor(d, c));
+    assert(esMenor(c, d));
 }
 
 void test_sumar(){
