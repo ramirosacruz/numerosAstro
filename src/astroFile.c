@@ -1,8 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <general.h>
-#include <arithmetic.h>
-#include <astroFile.h>
+#include "./numeroAstronomico.h"
 
 NumeroAstronomico read(FILE* flujo);
 FILE* write(NumeroAstronomico nroAstronomico,FILE* flujo);

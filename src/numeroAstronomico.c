@@ -1,6 +1,8 @@
 #include <stdio.h>
-#include <arithmetic.h>
-#include <general.h>
+#include "./arithmetic.h"
+#include "./errorHandling.h"
+#include "./utils/general.h"
+#include "./numeroAstronomico.h"
 
 NumeroAstronomico crearDesdeCadena(char* cadena){
     NumeroAstronomico numeroNuevo;

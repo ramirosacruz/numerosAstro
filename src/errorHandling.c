@@ -11,9 +11,7 @@ Esta operación equivale a: EsCadenaNula ∨ EsCadenaInvalida ∨ EsOverflow
 */
 #include <stdio.h>
 #include <stdlib.h>
-#include <general.h>
-#include <arithmetic.h>
-
+#include "./errorHandling.h"
 
 int esSecuenciaNula(NumeroAstronomico nro){
     if(longitudDeArreglo(nro.entero))
@@ -63,8 +61,24 @@ int getTipoDeError(NumeroAstronomico nro){
         return SECUENCIA_INVALIDA;
     return FALSE;
 }
-
-int main(){
+ 
+void printError(NumeroAstronomico numero){
+    switch (numero.longitudError)
+    {
+    case -1:
+        printf("Error: El Numero ingresado es nulo \n");
+        break;
     
-    return 0;
+    case -2:
+        printf("Error: El Numero ingresado tiene caracteres invalidos \n");
+        break;
+    
+    case -3:
+        printf("Error: El Numero ingresado supera lo 100 digitos \n");
+        break;
+    
+    case -4:
+        printf("Error: El Numero ingresado tiene caracteres invalidos y supera los 100 digitos \n");
+        break;
+    }
 }

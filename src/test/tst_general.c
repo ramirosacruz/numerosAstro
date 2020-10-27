@@ -2,6 +2,7 @@
 #include "../utils/general.h"
 #include <assert.h>
 #include "../arithmetic.h"
+#include "../numeroAstronomico.h"
 void test_enteroACaracter();
 int main()
 {

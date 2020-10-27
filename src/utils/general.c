@@ -1,4 +1,4 @@
-#include "general.h"
+#include <stdio.h>
 
 char enteroACaracter(int numero){
     return numero + '0';
@@ -15,25 +15,4 @@ int longitudDeArreglo(const char* cadena){
     longitud++;
     }
     return longitud;
-}
-
-void printError(NumeroAstronomico numero){
-    switch (numero.longitudError)
-    {
-    case -1:
-        printf("Error: El Numero ingresado es nulo \n");
-        break;
-    
-    case -2:
-        printf("Error: El Numero ingresado tiene caracteres invalidos \n");
-        break;
-    
-    case -3:
-        printf("Error: El Numero ingresado supera lo 100 digitos \n");
-        break;
-    
-    case -4:
-        printf("Error: El Numero ingresado tiene caracteres invalidos y supera los 100 digitos \n");
-        break;
-    }
 }

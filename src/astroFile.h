@@ -1,10 +1,7 @@
+#include "./numeroAstronomico.h"
+
 #ifndef _ASTROFILE
 #define _ASTROFILE
-
-typedef struct {
-    const char* entero;
-    int longitudError;
-} NumeroAstronomico;
 
 NumeroAstronomico read(FILE* flujo);
 FILE* write(NumeroAstronomico nroAstronomico,FILE* flujo);
