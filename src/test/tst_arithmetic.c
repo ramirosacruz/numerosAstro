@@ -34,7 +34,7 @@ void test_sonIguales(){
     d.entero = "230";
     d.longitudError = 3;
          
-    assert(sonIguales(c, d)); 
+    assert(!sonIguales(c, d)); 
 }
 
   

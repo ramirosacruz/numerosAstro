@@ -38,8 +38,8 @@ int sonIguales(NumeroAstronomico primerNro, NumeroAstronomico segundoNro){
         while(*primerNro.entero != '\0'){
             if(*primerNro.entero != *segundoNro.entero)
                 return FALSE;
-            *primerNro.entero ++;
-            *segundoNro.entero ++;
+            primerNro.entero ++;
+            segundoNro.entero ++;
         }
         return TRUE;
     }

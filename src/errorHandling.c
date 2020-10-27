@@ -33,7 +33,7 @@ int esSecuenciaInvalida(NumeroAstronomico nro){
         entero = caracterAEntero(*nro.entero);
         if (entero < 0 || entero > 9)
             return TRUE;
-        *nro.entero++;
+        nro.entero++;
     }
     return FALSE;
 }
