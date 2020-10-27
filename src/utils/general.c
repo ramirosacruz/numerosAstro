@@ -19,7 +19,7 @@ int longitudDeArreglo(const char* puntero){
 }
 
 void printError(NumeroAstronomico numero){
-    switch (getTipoDeError(numero))
+    switch (numero.longitudError)
     {
     case -1:
         printf("Error: El Numero ingresado es nulo \n");
