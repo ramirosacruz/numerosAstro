@@ -4,6 +4,14 @@
 #include "./utils/general.h"
 #include "./numeroAstronomico.h"
 
+ 
+
+/**
+ * @author: Ramiro Flores y Nicolas Carson
+ * @version: 1.0
+ * @see: https://github.com/ramirosacruz/numerosAstro
+*/
+
 NumeroAstronomico crearDesdeCadena(char* cadena){
     NumeroAstronomico numeroNuevo;
     numeroNuevo.entero = cadena;

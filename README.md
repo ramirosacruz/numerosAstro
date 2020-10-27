@@ -24,3 +24,5 @@ $ gcc src/test/tst_arithmetic.c && ./a.out
 TODO...
 
 # Normativas
+
+- Utilizamos la Java Docs para una correcta documentación

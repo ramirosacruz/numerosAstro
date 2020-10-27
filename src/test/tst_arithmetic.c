@@ -12,18 +12,29 @@ int main()
 {
     test_esMenor();
     test_sumar();
+    test_sonIguales();
 }
   
 void test_sonIguales(){
-    NumeroAstronomico miNumero;
-    miNumero.entero = "120";
-    miNumero.longitudError = 3;
+    NumeroAstronomico a;
+    a.entero = "220";
+    a.longitudError = 3;
 
-    NumeroAstronomico otroNumero;
-    otroNumero.entero = "220";
-    otroNumero.longitudError = 3;
+    NumeroAstronomico b;
+    b.entero = "220";
+    b.longitudError = 3;
          
-    assert(esMenor(miNumero, otroNumero)); 
+    assert(sonIguales(a, b)); 
+
+    NumeroAstronomico c;
+    c.entero = "220";
+    c.longitudError = 3;
+
+    NumeroAstronomico d;
+    d.entero = "230";
+    d.longitudError = 3;
+         
+    assert(sonIguales(c, d)); 
 }
 
   
@@ -39,12 +50,12 @@ void test_esMenor(){
     assert(esMenor(a, b)); 
 
     NumeroAstronomico c;
-    c.entero = "2200";
-    c.longitudError = 1002;
+    c.entero = "200";
+    c.longitudError = 7;
 
     NumeroAstronomico d;
-    d.entero = "1000";
-    d.longitudError = 1001;
+    d.entero = "322";
+    d.longitudError = 5;
          
     assert(esMenor(d, c));
 }
