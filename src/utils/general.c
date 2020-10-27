@@ -17,3 +17,24 @@ int longitudDeArreglo(const char* puntero){
     }
     return longitud;
 }
+
+void printError(NumeroAstronomico numero){
+    switch (numero.longitudError)
+    {
+    case -1:
+        printf("Error: El Numero ingresado es nulo \n");
+        break;
+    
+    case -2:
+        printf("Error: El Numero ingresado tiene caracteres invalidos \n");
+        break;
+    
+    case -3:
+        printf("Error: El Numero ingresado supera lo 100 digitos \n");
+        break;
+    
+    case -4:
+        printf("Error: El Numero ingresado tiene caracteres invalidos y supera los 100 digitos \n");
+        break;
+    }
+}

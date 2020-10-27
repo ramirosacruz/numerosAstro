@@ -12,27 +12,27 @@
 
 int esMenor(NumeroAstronomico primerNro, NumeroAstronomico segundoNro){
     if(primerNro.longitudError < segundoNro.longitudError)
-        return true;
+        return TRUE;
     else{
         if(primerNro.longitudError == segundoNro.longitudError){
             if(*primerNro.entero < *segundoNro.entero)
-                return true;    
+                return TRUE;    
         } 
-        return false;    
+        return FALSE;    
     }
 }
 
 int sonIguales(NumeroAstronomico primerNro, NumeroAstronomico segundoNro){
     if(primerNro.longitudError != segundoNro.longitudError)
-        return false;
+        return FALSE;
     else{
         while(*primerNro.entero != '\0'){
             if(*primerNro.entero != *segundoNro.entero)
-                return false;
+                return FALSE;
             *primerNro.entero ++;
             *segundoNro.entero ++;
         }
-        return true;
+        return TRUE;
     }
 }
 

@@ -17,16 +17,16 @@ Esta operación equivale a: EsCadenaNula ∨ EsCadenaInvalida ∨ EsOverflow
 
 int esSecuenciaNula(NumeroAstronomico nro){
     if(longitudDeArreglo(nro.entero))
-        return true;
+        return TRUE;
     else
-        return false;  
+        return FALSE;  
 }
 
 int esOverFlow(NumeroAstronomico nro){
     if(longitudDeArreglo(nro.entero) <= 100)
-        return false;
+        return FALSE;
     else
-        return true;  
+        return TRUE;  
 }
 
 int esSecuenciaInvalida(NumeroAstronomico nro){
@@ -34,10 +34,10 @@ int esSecuenciaInvalida(NumeroAstronomico nro){
         int entero;
         entero = caracterAEntero(*nro.entero);
         if (entero < 0 || entero > 9)
-            return true;
+            return TRUE;
         *nro.entero++;
     }
-    return false;
+    return FALSE;
 }
 
 int esError(NumeroAstronomico nro){
@@ -45,9 +45,23 @@ int esError(NumeroAstronomico nro){
     int error2 = esSecuenciaInvalida(nro);
     int error3 = esOverFlow(nro);
     if(error1 + error2 + error3)
-        return true;
+        return TRUE;
     else
-        return false; 
+        return FALSE; 
+}
+
+int getTipoDeError(NumeroAstronomico nro){
+    if(esSecuenciaNula(nro))
+        return SECUENCIA_NULA;
+    if(esOverFlow(nro)){
+        if(esSecuenciaInvalida(nro))
+            return DOBLE_ERROR;
+        else
+            return OVER_FLOW;
+    }
+    if(esSecuenciaInvalida(nro))
+        return SECUENCIA_INVALIDA;
+    return FALSE;
 }
 
 int main(){
