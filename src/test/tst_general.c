@@ -6,6 +6,7 @@
 void test_enteroACaracter();
 int main()
 {
+    printf("\n --- 🧪 TEST GENERAL 🧪 --- \n");
     printf("\n 🔃 Cargando Test... \n");
     test_enteroACaracter();
     printf("\n ✅ Todos los test corrieron  \n");

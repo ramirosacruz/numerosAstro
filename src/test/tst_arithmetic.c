@@ -11,6 +11,7 @@ void test_sonIguales();
 
 int main()
 {
+    printf("\n --- 🧪  TEST ARITHMETICS 🧪 --- \n");
     printf("\n 🔃 Cargando Test... \n");
     test_esMenor();
     test_sumar();
