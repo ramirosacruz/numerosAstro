@@ -4,43 +4,69 @@
 #include "./utils/general.h"
 #include "./numeroAstronomico.h"
 
- 
-
 /**
  * @author: Ramiro Flores y Nicolas Carson
  * @version: 1.0
  * @see: https://github.com/ramirosacruz/numerosAstro
 */
 
-NumeroAstronomico crearDesdeCadena(char* cadena){
+/**
+ * @return Se genera el número astronómico con las banderas al comienzo
+ * y posteriormente se colocan los números
+ * */
+char *generarCadenaDeNumeroAstronomico(char *cadena, int carry, int overflow)
+{
+    int diferencia = 100 - longitudDeArreglo(cadena);
+    char *nuevaCadena = crearCadenaPorCaracter(diferencia, '0');
+
+    nuevaCadena[0] = enteroACaracter(carry);
+    nuevaCadena[1] = enteroACaracter(overflow);
+
+    for (int i = diferencia; i < 100; i++)
+    {
+        nuevaCadena[i] = *cadena;
+        cadena++;
+    }
+
+    return nuevaCadena;
+}
+
+NumeroAstronomico crearDesdeCadena(char *cadena)
+{
     NumeroAstronomico numeroNuevo;
     numeroNuevo.entero = cadena;
-    printf("%s \n",numeroNuevo.entero);
-    if (esError(numeroNuevo)){
+    /* printf("%s \n", numeroNuevo.entero); */
+    if (esError(numeroNuevo))
+    {
         numeroNuevo.longitudError = getTipoDeError(numeroNuevo);
         printError(numeroNuevo);
         return numeroNuevo;
     }
     numeroNuevo.longitudError = longitudDeArreglo(numeroNuevo.entero);
+    numeroNuevo.entero = generarCadenaDeNumeroAstronomico(cadena, 0, 0);
+
     return numeroNuevo;
 }
 
-NumeroAstronomico crearDesdeCifraSeguidaDeCeros(int cifra, int cantCeros){
+NumeroAstronomico crearDesdeCifraSeguidaDeCeros(int cifra, int cantCeros)
+{
     NumeroAstronomico numeroNuevo;
     char cadenaAux[100];
-    char* punt = cadenaAux;
-    sprintf(cadenaAux,"%d",cifra);
+    char *punt = cadenaAux;
+    sprintf(cadenaAux, "%d", cifra);
     int longitud = longitudDeArreglo(cadenaAux) + cantCeros;
-    if (longitud >= 100 ){
+    if (longitud >= 100)
+    {
         numeroNuevo.longitudError = OVER_FLOW;
         printError(numeroNuevo);
         return numeroNuevo;
     }
-    
-    while(*punt != '\0')
+
+    while (*punt != '\0')
         punt++;
 
-    for(int i=0; i < cantCeros; i++){
+    for (int i = 0; i < cantCeros; i++)
+    {
         *punt = '0';
         punt++;
         *punt = '\0';

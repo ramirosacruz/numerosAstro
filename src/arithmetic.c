@@ -21,13 +21,15 @@ int esMenor(NumeroAstronomico primerNro, NumeroAstronomico segundoNro)
     {
         if (primerNro.longitudError == segundoNro.longitudError)
         {
+            //Ignora las banderas
+            primerNro.entero += 2;
+            segundoNro.entero += 2;
             while (*primerNro.entero != '\0')
             {
                 if (*primerNro.entero < *segundoNro.entero)
                     return TRUE;
                 primerNro.entero++;
                 segundoNro.entero++;
-                printf("%c", *segundoNro.entero);
             }
         }
         return FALSE;
@@ -56,16 +58,8 @@ int sonIguales(NumeroAstronomico primerNro, NumeroAstronomico segundoNro)
     }
 }
 
-/* 
-NumeroAstronomico sumar(NumeroAstronomico primerNro, NumeroAstronomico segundoNro){
-    NumeroAstronomico nuevoNA;
-    nuevoNA.entero = "";
-    nuevoNA.longitudError = 0;
-    while(*primerNro.entero != '\0'){
-        *primerNro.entero += segundoNro.entero
-        *primerNro.entero ++;
-        *segundoNro.entero ++;
-    }
-    return true;
+NumeroAstronomico sumar(NumeroAstronomico primerNro, NumeroAstronomico segundoNro)
+{
+    NumeroAstronomico nuevoNA = crearDesdeCadena("0");
+    return nuevoNA;
 }
-  */

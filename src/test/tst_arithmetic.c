@@ -10,9 +10,6 @@ void test_sonIguales();
 
 int main()
 {
-    NumeroAstronomico a = crearDesdeCadena("100");
-    NumeroAstronomico b = crearDesdeCadena("200");
-
     test_esMenor();
     test_sumar();
     test_sonIguales();
@@ -20,23 +17,16 @@ int main()
 
 void test_sonIguales()
 {
-    NumeroAstronomico a;
-    a.entero = "220";
-    a.longitudError = 3;
+    NumeroAstronomico a = crearDesdeCadena("200");
+    printf("NUMERO %s y longitud de %d", a.entero, a.longitudError);
 
-    NumeroAstronomico b;
-    b.entero = "220";
-    b.longitudError = 3;
+    NumeroAstronomico b = crearDesdeCadena("200");
 
     assert(sonIguales(a, b));
 
-    NumeroAstronomico c;
-    c.entero = "220";
-    c.longitudError = 3;
+    NumeroAstronomico c = crearDesdeCadena("200");
 
-    NumeroAstronomico d;
-    d.entero = "230";
-    d.longitudError = 3;
+    NumeroAstronomico d = crearDesdeCadena("201");
 
     assert(!sonIguales(c, d));
 }

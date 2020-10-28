@@ -8,7 +8,9 @@ char enteroACaracter(int numero);
 
 int caracterAEntero(char caracter);
 
-int longitudDeArreglo(const char* puntero);
+int longitudDeArreglo(const char *puntero);
+
+char *crearCadenaPorCaracter(int longitud, const char caracter);
 
 #include "general.c"
 #endif
