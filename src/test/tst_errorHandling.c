@@ -8,11 +8,12 @@ void test_cadenaVacia();
 
 int main()
 {
+    printf("\n --- 🧪 TEST ERRORHANDLING 🧪 --- \n");
+    printf("\n 🔃 Cargando Test... \n");
     test_cadenaVacia();
-    system("PAUSE");
+    printf("\n ✅ Todos los test corrieron  \n");
 }
 
-void test_cadenaVacia(){
-    NumeroAstronomico nro = crearDesdeCadena("153");
-    assert(*nro.entero == '1');
+void test_cadenaVacia()
+{
 }
