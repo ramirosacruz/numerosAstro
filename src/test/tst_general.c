@@ -6,12 +6,13 @@
 void test_enteroACaracter();
 int main()
 {
+    printf("\n 🔃 Cargando Test... \n");
     test_enteroACaracter();
+    printf("\n ✅ Todos los test corrieron  \n");
 }
 
-void test_enteroACaracter(){
+void test_enteroACaracter()
+{
     char a = enteroACaracter(11);
     assert(a == ';');
 }
- 
-

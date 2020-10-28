@@ -3,11 +3,13 @@
 #ifndef _ASTROFILE
 #define _ASTROFILE
 
-NumeroAstronomico read(FILE* flujo);
-FILE* write(NumeroAstronomico nroAstronomico,FILE* flujo);
+void show(NumeroAstronomico nro);
 
-NumeroAstronomico scan(FILE* flujo);
-FILE* print(NumeroAstronomico nroAstronomico,FILE* flujo);
+NumeroAstronomico read(FILE *flujo);
+FILE *write(NumeroAstronomico nroAstronomico, FILE *flujo);
+
+NumeroAstronomico scan(FILE *flujo);
+FILE *print(NumeroAstronomico nroAstronomico, FILE *flujo);
 
 #include "astroFile.c"
 #endif

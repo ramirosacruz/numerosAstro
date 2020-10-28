@@ -31,6 +31,25 @@ char *generarCadenaDeNumeroAstronomico(char *cadena, int carry, int overflow)
     return nuevaCadena;
 }
 
+/**
+ * @return Recibe un número al cual se le elimina las banderas y los ceros
+ */
+char *obtenerSoloValor(NumeroAstronomico nro)
+{
+    char *ptr;
+    ptr = (char *)malloc(nro.longitudError * sizeof(char)); // allocate memory to store 10 characters
+
+    nro.entero += 100 - nro.longitudError;
+
+    for (int i = 0; i < nro.longitudError; i++)
+    {
+        ptr[i] = *nro.entero;
+        nro.entero++;
+    }
+
+    return ptr;
+}
+
 NumeroAstronomico crearDesdeCadena(char *cadena)
 {
     NumeroAstronomico numeroNuevo;

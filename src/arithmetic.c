@@ -58,8 +58,39 @@ int sonIguales(NumeroAstronomico primerNro, NumeroAstronomico segundoNro)
     }
 }
 
+/**
+ * @return recibe dos números y realiza suma digito a digito utilizando banderas
+*/
 NumeroAstronomico sumar(NumeroAstronomico primerNro, NumeroAstronomico segundoNro)
 {
-    NumeroAstronomico nuevoNA = crearDesdeCadena("0");
-    return nuevoNA;
+    char *sumaEntero = crearCadenaPorCaracter(100, '0');
+
+    //Ignoramos las banderas
+    primerNro.entero += 99;
+    segundoNro.entero += 99;
+
+    int longitud = (primerNro.longitudError > segundoNro.longitudError) ? segundoNro.longitudError : primerNro.longitudError;
+
+    for (int i = 99; i > 2; i--)
+    {
+        int suma = caracterAEntero(*primerNro.entero) + caracterAEntero(*segundoNro.entero);
+
+        if (suma >= 10)
+        {
+            //carry
+            sumaEntero[0] = '1';
+            sumaEntero[i] = enteroACaracter(suma - 10);
+        }
+        else
+        {
+            sumaEntero[0] = '0';
+            sumaEntero[i] = enteroACaracter(suma + caracterAEntero(sumaEntero[0]));
+        }
+        primerNro.entero--;
+        segundoNro.entero--;
+    }
+    NumeroAstronomico nuevoNa;
+    nuevoNa.entero = sumaEntero;
+    nuevoNa.longitudError = longitud;
+    return nuevoNa;
 }
