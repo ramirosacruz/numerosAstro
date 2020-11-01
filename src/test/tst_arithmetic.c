@@ -48,10 +48,10 @@ void test_esMenor()
 
 void test_sumar()
 {
-    NumeroAstronomico nro_uno = crearDesdeCadena("203");
-    NumeroAstronomico nro_dos = crearDesdeCadena("202");
+    NumeroAstronomico nro_uno = crearDesdeCadena("953");
+    NumeroAstronomico nro_dos = crearDesdeCadena("362");
 
-    NumeroAstronomico suma_uno = crearDesdeCadena("405");
+    NumeroAstronomico suma_uno = crearDesdeCadena("1315");
 
     assert(sonIguales(sumar(nro_uno, nro_dos), suma_uno));
 
