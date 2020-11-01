@@ -7,28 +7,13 @@
 void test_sumar();
 void test_esMenor();
 void test_sonIguales();
-
-void assert ( int condicion )
-
-{
-
- if ( ! condicion )
-
- {
-
- printf("Condición no satisfecha\n");
-
- exit(0);
-
- }
-
-}
+ 
 
 
 
 int main()
 {
-    printf("\n --- 🧪  TEST ARITHMETICS 🧪 --- \n");
+    print f ("\n --- 🧪  TEST ARITHMETICS 🧪 --- \n");
     printf("\n 🔃 Cargando Test... \n");
     test_esMenor();
     test_sumar();
