@@ -4,13 +4,15 @@
 #include "../arithmetic.h"
 #include "../numeroAstronomico.h"
 #include "../astroFile.h"
-
+ 
 void test_sumar();
 void test_esMenor();
 void test_sonIguales();
 
 int main()
 {
+    fprintf( stderr, "HELP!" );
+
     printf("\n --- 🧪  TEST ARITHMETICS 🧪 --- \n");
     printf("\n 🔃 Cargando Test... \n");
     test_esMenor();
