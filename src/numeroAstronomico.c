@@ -16,13 +16,13 @@
  * */
 char *generarCadenaDeNumeroAstronomico(char *cadena, int carry, int overflow)
 {
-    int diferencia = 100 - longitudDeArreglo(cadena);
-    char *nuevaCadena = crearCadenaPorCaracter(diferencia, '0');
+    int longitudAbsoluta = longitudDeArreglo(cadena) + 2;
+    char *nuevaCadena = (char *)malloc(longitudAbsoluta * sizeof(char));
 
     nuevaCadena[0] = enteroACaracter(carry);
     nuevaCadena[1] = enteroACaracter(overflow);
 
-    for (int i = diferencia; i < 100; i++)
+    for (int i = 2; i < longitudAbsoluta; i++)
     {
         nuevaCadena[i] = *cadena;
         cadena++;
@@ -37,11 +37,29 @@ char *generarCadenaDeNumeroAstronomico(char *cadena, int carry, int overflow)
 char *obtenerSoloValor(NumeroAstronomico nro)
 {
     char *ptr;
-    ptr = (char *)malloc(nro.longitudError * sizeof(char)); // allocate memory to store 10 characters
 
-    nro.entero += 100 - nro.longitudError;
+    int longitudAbsoluta = nro.longitudError - 2;
+
+    ptr = (char *)malloc(longitudAbsoluta * sizeof(char)); // allocate memory to store 10 characters
+
+    nro.entero += 2;
 
     for (int i = 0; i < nro.longitudError; i++)
+    {
+        ptr[i] = *nro.entero;
+        nro.entero++;
+    }
+
+    return ptr;
+}
+
+char *obtenerBanderas(NumeroAstronomico nro)
+{
+    char *ptr;
+
+    ptr = (char *)malloc(2 * sizeof(char)); // allocate memory to store 10 characters
+
+     for (int i = 0; i < 2; i++)
     {
         ptr[i] = *nro.entero;
         nro.entero++;

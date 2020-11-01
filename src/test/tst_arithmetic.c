@@ -1,20 +1,19 @@
 #include <stdio.h>
 #include "../utils/general.h"
- #include "../arithmetic.h"
+#include "../arithmetic.h"
 #include "../numeroAstronomico.h"
 #include "../astroFile.h"
+#include <assert.h>
 
 void test_sumar();
 void test_esMenor();
 void test_sonIguales();
- 
-
-
 
 int main()
 {
-    print f ("\n --- 🧪  TEST ARITHMETICS 🧪 --- \n");
+    printf("\n --- 🧪  TEST ARITHMETICS 🧪 --- \n");
     printf("\n 🔃 Cargando Test... \n");
+
     test_esMenor();
     test_sumar();
     test_sonIguales();
@@ -50,17 +49,31 @@ void test_esMenor()
 
 void test_sumar()
 {
-    NumeroAstronomico nro_uno = crearDesdeCadena("953");
-    NumeroAstronomico nro_dos = crearDesdeCadena("362");
+    NumeroAstronomico a = crearDesdeCadena("953");
+    NumeroAstronomico b = crearDesdeCadena("362");
 
-    NumeroAstronomico suma_uno = crearDesdeCadena("1315");
+    NumeroAstronomico suma_ab = crearDesdeCadena("1315");
 
-    assert(sonIguales(sumar(nro_uno, nro_dos), suma_uno));
+    assert(sonIguales(sumar(a, b), suma_ab));
 
-    NumeroAstronomico nro_tres = crearDesdeCadena("203");
-    NumeroAstronomico nro_cuatro = crearDesdeCadena("402");
+    NumeroAstronomico c = crearDesdeCadena("203");
+    NumeroAstronomico d = crearDesdeCadena("402");
 
-    NumeroAstronomico suma_dos = crearDesdeCadena("405");
+    NumeroAstronomico suma_cd = crearDesdeCadena("405");
 
-    assert(!sonIguales(sumar(nro_tres, nro_cuatro), suma_dos));
+    assert(!sonIguales(sumar(c, d), suma_cd));
+
+    NumeroAstronomico e = crearDesdeCadena("1");
+    NumeroAstronomico f = crearDesdeCadena("1");
+
+    NumeroAstronomico suma_ef = crearDesdeCadena("2");
+
+    assert(!sonIguales(sumar(e, f), suma_ef));
+
+    NumeroAstronomico g = crearDesdeCadena("9999999");
+    NumeroAstronomico h = crearDesdeCadena("9999999");
+
+    NumeroAstronomico suma_gh = crearDesdeCadena("19999999");
+
+    assert(!sonIguales(sumar(g, h), suma_gh));
 }

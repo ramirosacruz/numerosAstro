@@ -5,7 +5,8 @@
 void show(NumeroAstronomico nro)
 {
   char *valorOriginal = obtenerSoloValor(nro);
-  printf("--------------------------------- \n VALOR CON FORMATO: %s \n VALOR ORIGINAL: %s \n LONGITUD: %d \n ---------------------------------- \n", nro.entero, valorOriginal, nro.longitudError);
+  char *valorBanderas = obtenerBanderas(nro);
+  printf("--------------------------------- \n VALOR CON FORMATO: %s|%s  \n VALOR ORIGINAL: %s \n LONGITUD: %d \n ---------------------------------- \n", valorBanderas, valorOriginal, valorOriginal, nro.longitudError);
 }
 
 NumeroAstronomico read(FILE *flujo);

@@ -63,34 +63,43 @@ int sonIguales(NumeroAstronomico primerNro, NumeroAstronomico segundoNro)
 */
 NumeroAstronomico sumar(NumeroAstronomico primerNro, NumeroAstronomico segundoNro)
 {
-    char *sumaEntero = crearCadenaPorCaracter(100, '0');
 
-    //Ignoramos las banderas
-    primerNro.entero += 99;
-    segundoNro.entero += 99;
+    int longitudAbsoluta = max(primerNro.longitudError, segundoNro.longitudError);
 
-    int longitud = (primerNro.longitudError > segundoNro.longitudError) ? segundoNro.longitudError : primerNro.longitudError;
+    if (primerNro.longitudError == segundoNro.longitudError)
+        if (enteroACaracter(primerNro.entero[3]) + enteroACaracter(primerNro.entero[3]) >= 10)
+            longitudAbsoluta++;
 
-    for (int i = 99; i > 2; i--)
+    char *sumaEntero;
+    sumaEntero = (char *)malloc((longitudAbsoluta + 2) * sizeof(char));
+    sumaEntero[0] = '0';
+    sumaEntero[1] = '0';
+
+    primerNro.entero += primerNro.longitudError + 1;
+    segundoNro.entero += segundoNro.longitudError + 1;
+
+    for (int i = longitudAbsoluta - 1 + 2; i >= 2; i--)
     {
         int suma = caracterAEntero(*primerNro.entero) + caracterAEntero(*segundoNro.entero);
 
+        int carry = caracterAEntero(sumaEntero[0]);
+
         if (suma >= 10)
         {
-            //carry
+            sumaEntero[i] = enteroACaracter(suma - 10 + carry);
             sumaEntero[0] = '1';
-            sumaEntero[i] = enteroACaracter(suma - 10);
         }
         else
         {
+            sumaEntero[i] = enteroACaracter(suma + carry);
             sumaEntero[0] = '0';
-            sumaEntero[i] = enteroACaracter(suma + caracterAEntero(sumaEntero[0]));
         }
-        primerNro.entero--;
-        segundoNro.entero--;
+        --primerNro.entero;
+        --segundoNro.entero;
     }
+
     NumeroAstronomico nuevoNa;
     nuevoNa.entero = sumaEntero;
-    nuevoNa.longitudError = longitud;
+    nuevoNa.longitudError = longitudAbsoluta;
     return nuevoNa;
 }
