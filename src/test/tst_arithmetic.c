@@ -1,18 +1,33 @@
 #include <stdio.h>
 #include "../utils/general.h"
-#include <assert.h>
-#include "../arithmetic.h"
+ #include "../arithmetic.h"
 #include "../numeroAstronomico.h"
 #include "../astroFile.h"
- 
+
 void test_sumar();
 void test_esMenor();
 void test_sonIguales();
 
+void assert ( int condicion )
+
+{
+
+ if ( ! condicion )
+
+ {
+
+ printf("Condición no satisfecha\n");
+
+ exit(0);
+
+ }
+
+}
+
+
+
 int main()
 {
-    fprintf( stderr, "HELP!" );
-
     printf("\n --- 🧪  TEST ARITHMETICS 🧪 --- \n");
     printf("\n 🔃 Cargando Test... \n");
     test_esMenor();
