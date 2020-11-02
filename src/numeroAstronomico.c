@@ -124,7 +124,6 @@ NumeroAstronomico crearAleatorio(){
         punt++;
         *punt = '\0';
     }
-    printf("%s\n",cadenaAux);
     NumeroAstronomico numeroNuevo;
     numeroNuevo.entero = generarCadenaDeNumeroAstronomico(cadenaAux, 0, 0);
     numeroNuevo.longitudError = longitud;
