@@ -113,4 +113,21 @@ NumeroAstronomico crearDesdeCifraSeguidaDeCeros(int cifra, int cantCeros)
     return numeroNuevo;
 }
 
-NumeroAstronomico crearAleatorio(int proxNroDeSecuenciaRand, int cantCeros);
+NumeroAstronomico crearAleatorio(){
+    srand(time(NULL));
+    int longitud = (rand() % 100) + 1;
+    char cadenaAux[100];
+    char *punt = cadenaAux;
+    for(int i=0; i < longitud; i++)
+    {
+        *punt = enteroACaracter(rand() % 10);
+        punt++;
+        *punt = '\0';
+    }
+    printf("%s\n",cadenaAux);
+    NumeroAstronomico numeroNuevo;
+    numeroNuevo.entero = generarCadenaDeNumeroAstronomico(cadenaAux, 0, 0);
+    numeroNuevo.longitudError = longitud;
+    return numeroNuevo;
+}
+ 
