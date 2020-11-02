@@ -116,7 +116,7 @@ NumeroAstronomico crearDesdeCifraSeguidaDeCeros(int cifra, int cantCeros)
 NumeroAstronomico crearAleatorio(){
     srand(time(NULL));
     int longitud = (rand() % 100) + 1;
-    char cadenaAux[100];
+    char *cadenaAux = (char *)malloc(longitud * sizeof(char));
     char *punt = cadenaAux;
     for(int i=0; i < longitud; i++)
     {
