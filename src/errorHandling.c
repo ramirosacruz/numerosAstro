@@ -21,7 +21,7 @@ int esSecuenciaNula(NumeroAstronomico nro){
 }
 
 int esOverFlow(NumeroAstronomico nro){
-    if(longitudDeArreglo(nro.entero) <= 100)
+    if(longitudDeArreglo(nro.entero) <= 102)
         return FALSE;
     else
         return TRUE;  
