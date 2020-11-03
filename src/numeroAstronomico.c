@@ -130,3 +130,27 @@ NumeroAstronomico crearAleatorio(){
     return numeroNuevo;
 }
  
+ NumeroAstronomico scanFlujoDeTexto(FILE *flujo){
+    char caracter;
+    char *cadenaAux = (char *)malloc(sizeof(flujo));
+    char *punt = cadenaAux;
+    do
+    {
+        caracter = fgetc(flujo);
+        *punt = caracter;
+        punt++;
+        caracter = fgetc(flujo);
+        ungetc(caracter,flujo);
+    } while (caracter != '#');
+    *punt = '\0';
+    NumeroAstronomico numeroNuevo;
+    numeroNuevo.longitudError = longitudDeArreglo(cadenaAux);
+    numeroNuevo.entero = generarCadenaDeNumeroAstronomico(cadenaAux, 0, 0);
+    if(esError(numeroNuevo))
+    {
+        numeroNuevo.longitudError = getTipoDeError(numeroNuevo);
+        printError(numeroNuevo);
+    }
+    fclose(flujo);
+    return numeroNuevo;
+}
