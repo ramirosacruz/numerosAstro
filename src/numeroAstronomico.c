@@ -152,3 +152,8 @@ NumeroAstronomico crearAleatorio(){
     fclose(flujo);
     return numeroNuevo;
 }
+
+void printFlujoTexto(NumeroAstronomico nro, FILE *flujo){
+    nro.entero += 2;
+    fprintf(flujo,"%s#",nro.entero);
+}
