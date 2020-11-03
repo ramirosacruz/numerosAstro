@@ -47,7 +47,7 @@ char *obtenerSoloValor(NumeroAstronomico nro)
         nro.entero++;
     }
 
-    ptr[3] = '\0';
+    ptr[nro.longitudError] = '\0';
 
     return ptr;
 }
@@ -56,10 +56,11 @@ char *obtenerBanderas(NumeroAstronomico nro)
 {
     char *ptr;
 
-    ptr = (char *)malloc(2 * sizeof(char)); // allocate memory to store 10 characters
+    ptr = (char *)malloc(3 * sizeof(char)); // allocate memory to store 10 characters
 
     ptr[0] = nro.entero[0];
     ptr[1] = nro.entero[1];
+    ptr[2] = '\0';
 
     return ptr;
 }

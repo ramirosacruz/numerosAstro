@@ -12,7 +12,6 @@ int main()
     //test_scanFlujoDeTexto();
     test_enteroACaracter();
     printf("\n ✅ Todos los test corrieron  \n");
-    getchar();
 }
 
 void test_enteroACaracter()

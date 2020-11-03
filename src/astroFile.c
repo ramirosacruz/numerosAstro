@@ -14,14 +14,12 @@ NumeroAstronomico readNA(FILE *flujo)
   NumeroAstronomico buff;
 
   fread(&buff, sizeof(NumeroAstronomico), 1, flujo);
-  printf(">>>>>>>>>>>> >>>>>>>>%saa", buff.entero);
 
   return buff;
 }
 
 void writeNA(NumeroAstronomico nroAstronomico, FILE *flujo)
 {
-  printf(">>>>>>>>>>>> >>>>>>>>%ld", sizeof(NumeroAstronomico));
   fwrite(&nroAstronomico, sizeof(NumeroAstronomico), 1, flujo);
   return;
 }

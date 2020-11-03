@@ -7,23 +7,22 @@
 
 void test_scanNA();
 void test_printNA();
-void test_writeNA();
+void test_writeNA_readNA();
 
 int main()
 {
     printf("\n --- 🧪 TEST ASTROFILE 🧪 --- \n");
     printf("\n 🔃 Cargando Test... \n");
     // test_scanNA();
-    // test_printFlujoDeTexto();
-    test_writeNA();
+    test_printNA();
+    test_writeNA_readNA();
 
     printf("\n ✅ Todos los test corrieron  \n");
-    getchar();
 }
-void test_writeNA()
+void test_writeNA_readNA()
 {
     FILE *flujo1 = fopen("FlujoNABin.bat", "w+");
-    NumeroAstronomico nro1 = crearDesdeCadena("623");
+    NumeroAstronomico nro1 = crearDesdeCadena("61223");
     writeNA(nro1, flujo1);
     fclose(flujo1);
     FILE *flujo2 = fopen("FlujoNABin.bat", "rb");
@@ -31,8 +30,6 @@ void test_writeNA()
     assert(*nro1.entero == *nro2.entero);
     assert(nro1.longitudError == nro2.longitudError);
     fclose(flujo2);
-
-    show(nro2);
 }
 
 void test_scanNA()
@@ -61,8 +58,8 @@ void test_printNA()
     fclose(flujo1);
 
     FILE *flujo2 = fopen("FlujoNATexto.txt", "r");
+
     NumeroAstronomico nro2 = scanNA(flujo2);
     assert(*nro1.entero == *nro2.entero);
     assert(nro1.longitudError == nro2.longitudError);
-    fclose(flujo2);
 }
