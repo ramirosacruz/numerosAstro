@@ -22,7 +22,7 @@ int longitudDeArreglo(const char *cadena)
     }
     return longitud;
 }
-
+/* 
 char *crearCadenaPorCaracter(int longitud, const char caracter)
 {
     char *ptr;
@@ -33,3 +33,4 @@ char *crearCadenaPorCaracter(int longitud, const char caracter)
 
     return ptr;
 }
+ */

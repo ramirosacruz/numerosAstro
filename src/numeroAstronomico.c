@@ -38,17 +38,16 @@ char *obtenerSoloValor(NumeroAstronomico nro)
 {
     char *ptr;
 
-    int longitudAbsoluta = nro.longitudError - 2;
-
-    ptr = (char *)malloc(longitudAbsoluta * sizeof(char)); // allocate memory to store 10 characters
+    ptr = (char *)malloc(nro.longitudError * sizeof(char)); // allocate memory to store 10 characters
 
     nro.entero += 2;
-
     for (int i = 0; i < nro.longitudError; i++)
     {
         ptr[i] = *nro.entero;
         nro.entero++;
     }
+
+    ptr[nro.longitudError] = '\0';
 
     return ptr;
 }
@@ -57,13 +56,11 @@ char *obtenerBanderas(NumeroAstronomico nro)
 {
     char *ptr;
 
-    ptr = (char *)malloc(2 * sizeof(char)); // allocate memory to store 10 characters
+    ptr = (char *)malloc(3 * sizeof(char)); // allocate memory to store 10 characters
 
-     for (int i = 0; i < 2; i++)
-    {
-        ptr[i] = *nro.entero;
-        nro.entero++;
-    }
+    ptr[0] = nro.entero[0];
+    ptr[1] = nro.entero[1];
+    ptr[2] = '\0';
 
     return ptr;
 }
@@ -113,12 +110,13 @@ NumeroAstronomico crearDesdeCifraSeguidaDeCeros(int cifra, int cantCeros)
     return numeroNuevo;
 }
 
-NumeroAstronomico crearAleatorio(){
+NumeroAstronomico crearAleatorio()
+{
     srand(time(NULL));
     int longitud = (rand() % 100) + 1;
     char *cadenaAux = (char *)malloc(longitud * sizeof(char));
     char *punt = cadenaAux;
-    for(int i=0; i < longitud; i++)
+    for (int i = 0; i < longitud; i++)
     {
         *punt = enteroACaracter(rand() % 10);
         punt++;
@@ -128,32 +126,4 @@ NumeroAstronomico crearAleatorio(){
     numeroNuevo.entero = generarCadenaDeNumeroAstronomico(cadenaAux, 0, 0);
     numeroNuevo.longitudError = longitud;
     return numeroNuevo;
-}
- 
- NumeroAstronomico scanFlujoDeTexto(FILE *flujo){
-    char *cadenaAux = (char *)malloc(sizeof(flujo));
-    char *punt = cadenaAux;
-    do
-    {
-        *punt = fgetc(flujo);
-        punt++;
-        *punt = fgetc(flujo);
-        ungetc(*punt,flujo);
-    } while (*punt != '#');
-    *punt = '\0';
-    NumeroAstronomico numeroNuevo;
-    numeroNuevo.longitudError = longitudDeArreglo(cadenaAux);
-    numeroNuevo.entero = generarCadenaDeNumeroAstronomico(cadenaAux, 0, 0);
-    if(esError(numeroNuevo))
-    {
-        numeroNuevo.longitudError = getTipoDeError(numeroNuevo);
-        printError(numeroNuevo);
-    }
-    fclose(flujo);
-    return numeroNuevo;
-}
-
-void printFlujoTexto(NumeroAstronomico nro, FILE *flujo){
-    nro.entero += 2;
-    fprintf(flujo,"%s#",nro.entero);
 }
