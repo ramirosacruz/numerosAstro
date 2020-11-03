@@ -131,17 +131,15 @@ NumeroAstronomico crearAleatorio(){
 }
  
  NumeroAstronomico scanFlujoDeTexto(FILE *flujo){
-    char caracter;
     char *cadenaAux = (char *)malloc(sizeof(flujo));
     char *punt = cadenaAux;
     do
     {
-        caracter = fgetc(flujo);
-        *punt = caracter;
+        *punt = fgetc(flujo);
         punt++;
-        caracter = fgetc(flujo);
-        ungetc(caracter,flujo);
-    } while (caracter != '#');
+        *punt = fgetc(flujo);
+        ungetc(*punt,flujo);
+    } while (*punt != '#');
     *punt = '\0';
     NumeroAstronomico numeroNuevo;
     numeroNuevo.longitudError = longitudDeArreglo(cadenaAux);
