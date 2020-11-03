@@ -15,7 +15,7 @@ NumeroAstronomico crearDesdeCadena(char *cadena);
 
 NumeroAstronomico crearDesdeCifraSeguidaDeCeros(int cifra, int cantCeros);
 
-NumeroAstronomico crearAleatorio(int proxNroDeSecuenciaRand, int cantCeros);
+NumeroAstronomico crearAleatorio();
 
 #include "numeroAstronomico.c"
 #endif
