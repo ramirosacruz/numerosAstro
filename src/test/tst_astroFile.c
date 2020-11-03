@@ -21,11 +21,11 @@ int main()
 }
 void test_writeNA_readNA()
 {
-    FILE *flujo1 = fopen("FlujoNABin.bat", "w+");
+    FILE *flujo1 = fopen("FlujoNABin.na", "w+");
     NumeroAstronomico nro1 = crearDesdeCadena("61223");
     writeNA(nro1, flujo1);
     fclose(flujo1);
-    FILE *flujo2 = fopen("FlujoNABin.bat", "rb");
+    FILE *flujo2 = fopen("FlujoNABin.na", "rb");
     NumeroAstronomico nro2 = readNA(flujo2);
     assert(*nro1.entero == *nro2.entero);
     assert(nro1.longitudError == nro2.longitudError);
