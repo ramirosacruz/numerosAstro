@@ -5,11 +5,13 @@
 
 void show(NumeroAstronomico nro);
 
-NumeroAstronomico read(FILE *flujo);
-FILE *write(NumeroAstronomico nroAstronomico, FILE *flujo);
+NumeroAstronomico readNA(FILE *flujo);
 
-NumeroAstronomico scan(FILE *flujo);
-FILE *print(NumeroAstronomico nroAstronomico, FILE *flujo);
+void writeNA(NumeroAstronomico nroAstronomico, FILE *flujo);
+
+NumeroAstronomico scanNA(FILE *flujo);
+
+void printNA(NumeroAstronomico nro, FILE *flujo);
 
 #include "astroFile.c"
 #endif

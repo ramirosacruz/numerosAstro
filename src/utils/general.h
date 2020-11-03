@@ -13,7 +13,7 @@ int caracterAEntero(char caracter);
 
 int longitudDeArreglo(const char *puntero);
 
-char *crearCadenaPorCaracter(int longitud, const char caracter);
-
+/* char *crearCadenaPorCaracter(int longitud, const char caracter);
+ */
 #include "general.c"
 #endif
