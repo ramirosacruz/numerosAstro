@@ -22,126 +22,87 @@
       </ul>
     </nav>
     <div class="hero">
-      <h1 class="hero__title">Scribbler</h1>
-      <p class="hero__description">Take your markdown notes in terminal</p>
+      <h1 class="hero__title">NumerosAstronomicos.h</h1>
+      <p class="hero__description">El NumeroAstronomico permite a programadores del área astronómica manejar cifras muy grandes.
+        Las siguientes dos secciones son guías y restricciones para el diseño del TAD pero no son ni la
+        especificación y ni la implementación.</p>
     </div>
     <div class="hero__terminal">
       <pre>
         <!-- Place your demo code here -->
-        <code class="shell-session demo">hyperyolo ~ $ </code>
+        <code class="shell-session demo">sintaxisysemanticadelenguajes ~ $ </code>
       </pre>
     </div>
     <div class="wrapper">
       <div class="installation">
-        <h3 class="section__title">Installation</h3>
+        <h3 class="section__title">Instalación</h3>
         <div class="tab__container">
-          <ul class="tab__menu">
-            <li class="tab active" data-tab="mac">mac</li>
-            <li class="tab" data-tab="linux">linux</li>
-            <li class="tab" data-tab="win">win</li>
-          </ul>
           <pre class="nohighlight code">
-            <code class="tab__pane active mac">$  brew install scribbler</code>
-            <code class="tab__pane linux">$  apt-get install scribbler</code>
-            <code class="tab__pane win">$  gem install scribbler</code>
+            <code class="tab__pane active mac">git clone https://github.com/ramirosacruz/numerosAstro
+            </code>
           </pre>
         </div>
       </div>
       <div class="feature">
         <div class="feature__item">
-          <h3 class="section__title">Fast & Light</h3>
-          <p>Start writing your notes immediately in any terminal! No more time wasted on navigating and opening your text editor.</p>
+          <h3 class="section__title">No Usamos Números Mágicos</h3>
+          <p>Es mala práctica enterrar en un programa "números mágicos" como 300 y 20; contienen poca
+            información para alguien que pueda tener que leer el programa más adelante, y son difíciles de
+            cambiar de una manera sistemática</p>
         </div>
         <div class="feature__item">
-          <h3 class="section__title">File Syncing</h3>
-          <p>Save your file in Dropbox then you can access to it from anywhere.</p>
+          <h3 class="section__title">Evitar Variables Innecesarias</h3>
+          <p>De [K&R1988] "Chapter 6 – A Tutorial Introduction – 1.3 The For Statement"
+            <<... en cualquier contexto donde se permite usar el valor de algún tipo, se pude usar una expresión
+            más complicada de ese tipo. >></p>
         </div>
         <div class="feature__item">
-          <h3 class="section__title">Secure</h3>
-          <p>Encrypt your notes optionally. No one can get to your secrets! </p>
+          <h3 class="section__title">Escribimos las Constantes Punto Flotante con Puntos Decimales</h3>
+          <p>De [K&R1988] "Chapter 1 – A Tutorial Introduction – 1.2 Variables and Arithmetic
+            Expressions"
+            << ... escribir constantes de punto flotante con puntos decimales explícitos inclusive cuando son
+            valores enteros enfatiza su naturaleza de punto flotante a los lectores humanos. >></p>
         </div>
         <div class="feature__item">
-          <h3 class="section__title">Configuration</h3>
-          <p>Maintain all your settings in a single <span class="code code--inline">config.json</span> file. Never need to redo the setting every single time jotting down a note.</p>
+          <h3 class="section__title">No Usamos Sentencias</h3>
+          <p><< Formalmente, la sentencia goto nunca es necesaria, y en la práctica es casi siempre fácil escribir
+            código sin ella...>></p>
         </div>
         <div class="feature__item">
-          <h3 class="section__title">Highlightings</h3>
-          <p>For better readability, scribbler has a clean, beautiful color scheme allow you to scan files fast.</p>
+          <h3 class="section__title">Usamos Variables Externas Solo Cuando se Justifica</h3>
+          <p>Las variables externas son llamadas así porque son definidas fuera de cualquier función. Son
+            también conocidas como variables globales por que son globalmente accesibles.</p>
         </div>
         <div class="feature__item">
-          <h3 class="section__title">Keybindings</h3>
-          <p>You can expect common keybindings for scribbler. Customize <span class="code code--inline">bindings.json</span> for your own liking! </p>
+          <h3 class="section__title">Alta Cohesión</h3>
+          <p>Significa que una función debe realizar solo una tarea. </p>
         </div>
       </div>
-      <div class="keybinding">
-        <ul class="keybinding__detail">
-          <h3 class="keybinding__title">Default Keybindings</h3>
-          <li>Quit without saving <span class="keybinding__label">Ctrl+C</span></li>
-          <li>Save <span class="keybinding__label">Cmd+S</span></li>
-          <li>Save and Quit <span class="keybinding__label">Ctrl+D</span></li>
-          <li>Undo <span class="keybinding__label">Cmd+Z</span></li>
-        </ul>
-        <ul class="keybinding__detail">
-          <h3 class="keybinding__title">Markdown Keybindings</h3>
-          <li><span class="keybinding__label">Ctrl+A</span> Insert Link Markdown</li>
-          <li><span class="keybinding__label">Ctrl+I</span> Insert Image Markdown</li>
-          <li><span class="keybinding__label">Ctrl+V</span> Insert YouTube Video</li>
-          <li><span class="keybinding__label">Ctrl+T</span> Insert Table</li>
-        </ul>
-      </div>
-      <div class="callout">
-        <p>Read our documentation for advanced keybindings and customization</p>
-        <a href="doc.html" class="button--primary">Documentation</a>
-      </div>
+       
     </div>
     <div class="changelog">
       <div class="wrapper">
         <h3 class="section__title">Changelog</h3>
         <div class="changelog__item">
           <div class="changelog__meta">
-            <h4 class="changelog__title">v0.7</h4>
-            <small class="changelog__date">10/12/2017</small>
+            <h4 class="changelog__title">v1</h4>
+            <small class="changelog__date">03/11/2020</small>
           </div>
           <div class="changelog__detail">
             <ul>
-              <li>Improving the writing workflow with better key bindings</li>
-              <li>Design updates</li>
-              <li>SSL Verification for web hooks</li>
-              <li>Render Emoji</li>
+              <li>Módulo de operaciones arimética</li>
+              <li>Módulo de manejo de errores</li>
+              <li>Test Unitario</li>
+              <li>Módulo de operaciones de salida</li>
+              <li>Módulo de operaciones de persistencia</li>
             </ul>
           </div>
         </div>
-        <div class="changelog__item">
-          <div class="changelog__meta">
-            <h4 class="changelog__title">v0.6</h4>
-            <small class="changelog__date">7/30/2017</small>
-          </div>
-          <div class="changelog__detail">
-            <ul>
-              <li>Adding Unicode support</li>
-              <li>Basic text highlighting</li>
-              <li>Fresh Design</li>
-            </ul>
-          </div>
-        </div>
-        <div class="changelog__item">
-          <div class="changelog__meta">
-            <h4 class="changelog__title">v0.5</h4>
-            <small class="changelog__date">5/10/2017</small>
-          </div>
-          <div class="changelog__detail">
-            <ul>
-              <li>Save default md file in new folders</li>
-              <li>Ability to quick search on existing notes</li>
-            </ul>
-          </div>
-        </div>
-        <div class="changelog__callout">
-          <a href="#" class="button--secondary">Checkout Full Log</a>
-        </div>
+       
       </div>
     </div>
-    <footer class="footer">Scribbler is a free HTML template created exclusively for <a href="https://tympanus.net/codrops/" target="_blank" class="link link--light">Codrops</a>.</footer>
+    <footer class="footer">Biblioteca de código abierto creada por los futuros ingenieros <a href="https://github.com/ramirosacruz" target="_blank" class="link link--light">Ramiro Flores</a>
+       y  <a href="https://github.com/ramirosacruz" target="_blank" class="link link--light">Nicolás Carson</a>.</footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
     <script src="scribbler.js"></script>
