@@ -181,8 +181,14 @@ FILE *mostrar(NumeroAstronomico nro, int grupoEnPrimerLinea,FILE *flujo){
             modulo = 3;
         }
     }
-    fputc('\n',flujo);
     int gruposSobrantes = (nro.longitudError - longitudPrimerLinea)/3;
+    if (!gruposSobrantes)
+    {
+        fputc('\n',flujo);
+        return flujo;
+    }
+    fputc('.',flujo);
+    fputc('\n',flujo);
     modulo = gruposSobrantes % (grupoEnPrimerLinea - 1);
     int lineasSobrantes = (gruposSobrantes - modulo) / (grupoEnPrimerLinea - 1);
     for(i = 0; i < lineasSobrantes; i++)
