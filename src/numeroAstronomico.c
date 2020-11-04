@@ -53,6 +53,7 @@ char *obtenerSoloValor(NumeroAstronomico nro)
     return ptr;
 }
 
+
 char *obtenerBanderas(NumeroAstronomico nro)
 {
     char *ptr;
@@ -68,6 +69,9 @@ char *obtenerBanderas(NumeroAstronomico nro)
     return ptr;
 }
 
+/**
+ * @return 
+ * */
 NumeroAstronomico crearDesdeCadena(char *cadena)
 {
     NumeroAstronomico numeroNuevo;
@@ -85,6 +89,9 @@ NumeroAstronomico crearDesdeCadena(char *cadena)
     return numeroNuevo;
 }
 
+/**
+ * @return 
+ * */
 NumeroAstronomico crearDesdeCifraSeguidaDeCeros(int cifra, int cantCeros)
 {
     NumeroAstronomico numeroNuevo;
@@ -113,6 +120,9 @@ NumeroAstronomico crearDesdeCifraSeguidaDeCeros(int cifra, int cantCeros)
     return numeroNuevo;
 }
 
+/**
+ * @return 
+ * */
 NumeroAstronomico crearAleatorio(){
     srand(time(NULL));
     int longitud = (rand() % 100) + 1;
@@ -129,8 +139,11 @@ NumeroAstronomico crearAleatorio(){
     numeroNuevo.longitudError = longitud;
     return numeroNuevo;
 }
- 
- NumeroAstronomico scanFlujoDeTexto(FILE *flujo){
+
+/**
+ * @return 
+ * */ 
+NumeroAstronomico scanFlujoDeTexto(FILE *flujo){
     char *cadenaAux = (char *)malloc(sizeof(flujo));
     char *punt = cadenaAux;
     do
@@ -152,12 +165,10 @@ NumeroAstronomico crearAleatorio(){
     fclose(flujo);
     return numeroNuevo;
 }
-
-void printFlujoTexto(NumeroAstronomico nro, FILE *flujo){
-    nro.entero += 2;
-    fprintf(flujo,"%s#",nro.entero);
-}
-
+ 
+/**
+ * @return 
+ * */
 FILE *mostrar(NumeroAstronomico nro, int grupoEnPrimerLinea,FILE *flujo){
     nro.entero += 2;
     int modulo = nro.longitudError % 3;
@@ -195,15 +206,18 @@ FILE *mostrar(NumeroAstronomico nro, int grupoEnPrimerLinea,FILE *flujo){
     return flujo;
 }
 
+/**
+ * @return 
+ * */
 const char* mostrarLinea(FILE *flujo,const char *ptr,int longitud){
     int modulo = longitud%3;
     if(!modulo)
         modulo = 3;
-    int i = 3 - modulo;
-    longitud = longitud + i;
+    int aux = 3 - modulo;
+    longitud = longitud + aux;
     fputc('\t',flujo);
     fputc('\t',flujo);
-    for(i; i < longitud; i++)
+    for(int i = aux; i < longitud; i++)
     {
         fputc(*ptr,flujo);
         ptr++;
