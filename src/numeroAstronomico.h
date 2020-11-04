@@ -17,5 +17,9 @@ NumeroAstronomico crearDesdeCifraSeguidaDeCeros(int cifra, int cantCeros);
 
 NumeroAstronomico crearAleatorio();
 
+FILE *mostrar(NumeroAstronomico nro, int grupoEnPrimerLinea,FILE *flujo);
+
+const char* mostrarLinea(FILE *flujo,const char *ptr,int longitud);
+
 #include "numeroAstronomico.c"
 #endif

@@ -169,7 +169,7 @@ FILE *mostrar(NumeroAstronomico nro, int grupoEnPrimerLinea,FILE *flujo){
         printf("Error: Grupo/s en primera linea exceden la longitud del numero o es igual a 1. \n");
         return flujo;
     }
-    nro.entero = mostrarLinea(flujo, nro.entero, longitudPrimerLinea, modulo);
+    nro.entero = mostrarLinea(flujo, nro.entero, longitudPrimerLinea);
     int gruposSobrantes = (nro.longitudError - longitudPrimerLinea)/3;
     if (!gruposSobrantes)
     {
@@ -182,7 +182,7 @@ FILE *mostrar(NumeroAstronomico nro, int grupoEnPrimerLinea,FILE *flujo){
     int lineasSobrantes = (gruposSobrantes - modulo) / (grupoEnPrimerLinea - 1);
     for(int i = 0; i < lineasSobrantes; i++)
     {
-        nro.entero = mostrarLinea(flujo, nro.entero, (grupoEnPrimerLinea - 1)*3, 3);
+        nro.entero = mostrarLinea(flujo, nro.entero, (grupoEnPrimerLinea - 1)*3);
         if(i == lineasSobrantes - 1 && !modulo){
             fputc('\n',flujo);
             return flujo;
@@ -190,21 +190,24 @@ FILE *mostrar(NumeroAstronomico nro, int grupoEnPrimerLinea,FILE *flujo){
         fputc('.',flujo);
         fputc('\n',flujo);
     }
-    nro.entero = mostrarLinea(flujo, nro.entero, modulo*3, 3);
+    nro.entero = mostrarLinea(flujo, nro.entero, modulo*3);
     fputc('\n',flujo);
     return flujo;
 }
 
-const char* mostrarLinea(FILE *flujo,const char *ptr,int iteraciones,int modulo){
+const char* mostrarLinea(FILE *flujo,const char *ptr,int longitud){
+    int modulo = longitud%3;
+    if(!modulo)
+        modulo = 3;
     int i = 3 - modulo;
-    iteraciones = iteraciones + i;
+    longitud = longitud + i;
     fputc('\t',flujo);
     fputc('\t',flujo);
-    for(i; i < iteraciones; i++)
+    for(i; i < longitud; i++)
     {
         fputc(*ptr,flujo);
         ptr++;
-        if((i%3) == 2 && i != iteraciones - 1)
+        if((i%3) == 2 && i != longitud - 1)
             fputc('.',flujo);
     }
     return ptr;
