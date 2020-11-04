@@ -166,7 +166,7 @@ FILE *mostrar(NumeroAstronomico nro, int grupoEnPrimerLinea,FILE *flujo){
     int longitudPrimerLinea = (grupoEnPrimerLinea - 1)*3 + modulo;
     if(longitudPrimerLinea > nro.longitudError || (grupoEnPrimerLinea == 1 && nro.longitudError > 3))
     {
-        printf("Error: Grupos en primera linea exeden la longitud del numero o es igual a 1. \n");
+        printf("Error: Grupo/s en primera linea exceden la longitud del numero o es igual a 1. \n");
         return flujo;
     }
     nro.entero = mostrarLinea(flujo, nro.entero, longitudPrimerLinea, modulo);
