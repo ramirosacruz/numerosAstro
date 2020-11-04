@@ -159,6 +159,7 @@ void printFlujoTexto(NumeroAstronomico nro, FILE *flujo){
 }
 
 FILE *mostrar(NumeroAstronomico nro, int grupoEnPrimerLinea,FILE *flujo){
+    nro.entero += 2;
     int modulo = nro.longitudError % 3;
     if(!modulo)
         modulo = 3;
