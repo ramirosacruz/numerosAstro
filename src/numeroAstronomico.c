@@ -169,18 +169,7 @@ FILE *mostrar(NumeroAstronomico nro, int grupoEnPrimerLinea,FILE *flujo){
         printf("Error: Grupos en primera linea exeden la longitud del numero o es igual a 1. \n");
         return flujo;
     }
-    int i; 
-    for(i = 0; i < longitudPrimerLinea; i++)
-    {
-        fputc(*nro.entero,flujo);
-        nro.entero++;
-        modulo--;
-        if(!modulo)
-        {
-            fputc('.',flujo);
-            modulo = 3;
-        }
-    }
+    nro.entero = mostrarLinea(flujo, nro.entero, longitudPrimerLinea, modulo);
     int gruposSobrantes = (nro.longitudError - longitudPrimerLinea)/3;
     if (!gruposSobrantes)
     {
@@ -191,23 +180,30 @@ FILE *mostrar(NumeroAstronomico nro, int grupoEnPrimerLinea,FILE *flujo){
     fputc('\n',flujo);
     modulo = gruposSobrantes % (grupoEnPrimerLinea - 1);
     int lineasSobrantes = (gruposSobrantes - modulo) / (grupoEnPrimerLinea - 1);
-    for(i = 0; i < lineasSobrantes; i++)
+    for(int i = 0; i < lineasSobrantes; i++)
     {
-        for(int j = 0; j < (grupoEnPrimerLinea - 1)*3;j++){
-            fputc(*nro.entero,flujo);
-            nro.entero++;
-            if((j%3) == 2)
-                fputc('.',flujo);
+        nro.entero = mostrarLinea(flujo, nro.entero, (grupoEnPrimerLinea - 1)*3, 3);
+        if(i == lineasSobrantes - 1 && !modulo){
+            fputc('\n',flujo);
+            return flujo;
         }
+        fputc('.',flujo);
         fputc('\n',flujo);
     }
-    for(i = 0; i < modulo*3; i++)
-    {
-        fputc(*nro.entero,flujo);
-        nro.entero++;
-        if((i%3) == 2 && i != (modulo*3 - 1))
-            fputc('.',flujo);
-    }
+    nro.entero = mostrarLinea(flujo, nro.entero, modulo*3, 3);
     fputc('\n',flujo);
     return flujo;
+}
+
+const char* mostrarLinea(FILE *flujo,const char *ptr,int iteraciones,int modulo){
+    int i = 3 - modulo;
+    iteraciones = iteraciones + i;
+    for(i; i < iteraciones; i++)
+    {
+        fputc(*ptr,flujo);
+        ptr++;
+        if((i%3) == 2 && i != iteraciones - 1)
+            fputc('.',flujo);
+    }
+    return ptr;
 }

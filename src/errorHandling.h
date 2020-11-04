@@ -19,5 +19,9 @@ int getTipoDeError(NumeroAstronomico nro);
  
 void printError(NumeroAstronomico numero);
 
+FILE *mostrar(NumeroAstronomico nro, int grupoEnPrimerLinea,FILE *flujo);
+
+const char* mostrarLinea(FILE *flujo,const char *ptr,int iteraciones,int modulo);
+
 #include "errorHandling.c"
 #endif
