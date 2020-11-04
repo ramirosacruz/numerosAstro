@@ -198,6 +198,8 @@ FILE *mostrar(NumeroAstronomico nro, int grupoEnPrimerLinea,FILE *flujo){
 const char* mostrarLinea(FILE *flujo,const char *ptr,int iteraciones,int modulo){
     int i = 3 - modulo;
     iteraciones = iteraciones + i;
+    fputc('\t',flujo);
+    fputc('\t',flujo);
     for(i; i < iteraciones; i++)
     {
         fputc(*ptr,flujo);
