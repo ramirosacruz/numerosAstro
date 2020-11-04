@@ -38,16 +38,17 @@ char *obtenerSoloValor(NumeroAstronomico nro)
 {
     char *ptr;
 
-    ptr = (char *)malloc(nro.longitudError * sizeof(char)); // allocate memory to store 10 characters
+    int longitudAbsoluta = nro.longitudError - 2;
+
+    ptr = (char *)malloc(longitudAbsoluta * sizeof(char)); // allocate memory to store 10 characters
 
     nro.entero += 2;
+
     for (int i = 0; i < nro.longitudError; i++)
     {
         ptr[i] = *nro.entero;
         nro.entero++;
     }
-
-    ptr[nro.longitudError] = '\0';
 
     return ptr;
 }
@@ -56,11 +57,13 @@ char *obtenerBanderas(NumeroAstronomico nro)
 {
     char *ptr;
 
-    ptr = (char *)malloc(3 * sizeof(char)); // allocate memory to store 10 characters
+    ptr = (char *)malloc(2 * sizeof(char)); // allocate memory to store 10 characters
 
-    ptr[0] = nro.entero[0];
-    ptr[1] = nro.entero[1];
-    ptr[2] = '\0';
+     for (int i = 0; i < 2; i++)
+    {
+        ptr[i] = *nro.entero;
+        nro.entero++;
+    }
 
     return ptr;
 }
@@ -110,13 +113,12 @@ NumeroAstronomico crearDesdeCifraSeguidaDeCeros(int cifra, int cantCeros)
     return numeroNuevo;
 }
 
-NumeroAstronomico crearAleatorio()
-{
+NumeroAstronomico crearAleatorio(){
     srand(time(NULL));
     int longitud = (rand() % 100) + 1;
     char *cadenaAux = (char *)malloc(longitud * sizeof(char));
     char *punt = cadenaAux;
-    for (int i = 0; i < longitud; i++)
+    for(int i=0; i < longitud; i++)
     {
         *punt = enteroACaracter(rand() % 10);
         punt++;
@@ -126,4 +128,74 @@ NumeroAstronomico crearAleatorio()
     numeroNuevo.entero = generarCadenaDeNumeroAstronomico(cadenaAux, 0, 0);
     numeroNuevo.longitudError = longitud;
     return numeroNuevo;
+}
+ 
+ NumeroAstronomico scanFlujoDeTexto(FILE *flujo){
+    char *cadenaAux = (char *)malloc(sizeof(flujo));
+    char *punt = cadenaAux;
+    do
+    {
+        *punt = fgetc(flujo);
+        punt++;
+        *punt = fgetc(flujo);
+        ungetc(*punt,flujo);
+    } while (*punt != '#');
+    *punt = '\0';
+    NumeroAstronomico numeroNuevo;
+    numeroNuevo.longitudError = longitudDeArreglo(cadenaAux);
+    numeroNuevo.entero = generarCadenaDeNumeroAstronomico(cadenaAux, 0, 0);
+    if(esError(numeroNuevo))
+    {
+        numeroNuevo.longitudError = getTipoDeError(numeroNuevo);
+        printError(numeroNuevo);
+    }
+    fclose(flujo);
+    return numeroNuevo;
+}
+
+void printFlujoTexto(NumeroAstronomico nro, FILE *flujo){
+    nro.entero += 2;
+    fprintf(flujo,"%s#",nro.entero);
+}
+
+FILE *mostrar(NumeroAstronomico nro, int grupoEnPrimerLinea,FILE *flujo){
+    int modulo = nro.longitudError % 3;
+    if(!modulo)
+        modulo = 3;
+    int longitudPrimerLinea = (grupoEnPrimerLinea - 1)*3 + modulo;
+    int i; 
+    for(i = 0; i < longitudPrimerLinea; i++)
+    {
+        fputc(*nro.entero,flujo);
+        nro.entero++;
+        modulo--;
+        if(!modulo)
+        {
+            fputc('.',flujo);
+            modulo = 3;
+        }
+    }
+    fputc('\n',flujo);
+    int gruposSobrantes = (nro.longitudError - longitudPrimerLinea)/3;
+    modulo = gruposSobrantes % (grupoEnPrimerLinea - 1);
+    int lineasSobrantes = (gruposSobrantes - modulo) / (grupoEnPrimerLinea - 1);
+    for(i = 0; i < lineasSobrantes; i++)
+    {
+        for(int j = 0; j < (grupoEnPrimerLinea - 1)*3;j++){
+            fputc(*nro.entero,flujo);
+            nro.entero++;
+            if((j%3) == 2)
+                fputc('.',flujo);
+        }
+        fputc('\n',flujo);
+    }
+    for(i = 0; i < modulo*3; i++)
+    {
+        fputc(*nro.entero,flujo);
+        nro.entero++;
+        if((i%3) == 2 && i != (modulo*3 - 1))
+            fputc('.',flujo);
+    }
+    fputc('\n',flujo);
+    return flujo;
 }
