@@ -54,8 +54,7 @@ void sumaNA()
   a = ingresarNumeros();
   b = ingresarNumeros();
   c = sumar(a, b);
-  c.entero += 2;
-  printf("\n La suma es: \n %s", c.entero);
+  show(c);
   imprimir(c);
 }
 void esMenorNA()
@@ -154,8 +153,7 @@ NumeroAstronomico primerOp()
 NumeroAstronomico segundaOp()
 {
   NumeroAstronomico nro = crearAleatorio();
-  nro.entero += 2;
-  printf("\n La cadena aleatoria es: \n %s", nro.entero);
+  show(nro);
   imprimir(nro);
   return nro;
 }

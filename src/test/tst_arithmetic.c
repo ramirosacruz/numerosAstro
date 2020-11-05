@@ -14,9 +14,9 @@ int main()
     printf("\n --- 🧪  TEST ARITHMETICS 🧪 --- \n");
     printf("\n 🔃 Cargando Test... \n");
 
-    test_esMenor();
+    //test_esMenor();
     test_sumar();
-    test_sonIguales();
+    //test_sonIguales();
     printf("\n ✅ Todos los test corrieron  \n");
 }
 

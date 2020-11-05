@@ -11,7 +11,10 @@ int main()
     printf("\n 🔃 Cargando Test... \n");
     FILE *flujo;
     flujo = stdout;
-    NumeroAstronomico a = crearDesdeCifraSeguidaDeCeros(125, 97);
-    mostrar(a, 4, flujo);
+    NumeroAstronomico a = crearDesdeCadena("12");
+    int bool = esSecuenciaInvalida(a);
+    //mostrar(a, 1, flujo);
+    printf("%d  \n", bool);
+    //printf("%s", a.entero);
     printf("\n ✅ Todos los test corrieron  \n");
 }

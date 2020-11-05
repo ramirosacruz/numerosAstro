@@ -21,13 +21,13 @@ char *generarCadenaDeNumeroAstronomico(char *cadena, int carry, int overflow)
 
     nuevaCadena[0] = enteroACaracter(carry);
     nuevaCadena[1] = enteroACaracter(overflow);
-
-    for (int i = 2; i < longitudAbsoluta; i++)
+    int i;
+    for (i = 2; i < longitudAbsoluta; i++)
     {
         nuevaCadena[i] = *cadena;
         cadena++;
     }
-
+    nuevaCadena[i] = '\0';
     return nuevaCadena;
 }
 

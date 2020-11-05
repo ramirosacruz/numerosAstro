@@ -40,9 +40,9 @@ int esOverFlow(NumeroAstronomico nro)
  */
 int esSecuenciaInvalida(NumeroAstronomico nro)
 {
+    int entero;
     while (*nro.entero != '\0')
     {
-        int entero;
         entero = caracterAEntero(*nro.entero);
         if (entero < 0 || entero > 9)
             return TRUE;
