@@ -2,6 +2,9 @@
 #include <stdlib.h>
 #include "./numeroAstronomico.h"
 
+/**
+ * @return No devuelve nada pero muestra por pantalla el número astronómico de manera legible
+ * */
 void show(NumeroAstronomico nro)
 {
   char *valorOriginal = obtenerSoloValor(nro);
@@ -9,6 +12,9 @@ void show(NumeroAstronomico nro)
   printf("--------------------------------- \n VALOR CON FORMATO: %s|%s|  \n VALOR ORIGINAL: %s \n LONGITUD: %d \n ---------------------------------- \n", valorBanderas, valorOriginal, nro.entero, nro.longitudError);
 }
 
+/**
+ * @return Genera un NA apartir de un puntero a un archivo, este debe contener el registro de un NA
+ * */
 NumeroAstronomico readNA(FILE *flujo)
 {
   NumeroAstronomico buff;
@@ -18,6 +24,10 @@ NumeroAstronomico readNA(FILE *flujo)
   return buff;
 }
 
+
+/**
+ * @return A partir de un NA y un puntero a un archivo, escribe el NA en un archivo binario
+ * */
 void writeNA(NumeroAstronomico nroAstronomico, FILE *flujo)
 {
   fwrite(&nroAstronomico, sizeof(NumeroAstronomico), 1, flujo);

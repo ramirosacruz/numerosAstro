@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://ramirosacruz.github.io/numerosAstro/" target="blank"><img src="https://github.com/ramirosacruz/numerosAstro/blob/resource/portada-git.png?raw=true" width="920" alt="Nest Logo" /></a>
+  <a href="https://ramirosacruz.github.io/numerosAstro/" target="blank"><img src="https://github.com/ramirosacruz/numerosAstro/blob/resource/portada-git.png?raw=true" width="920" alt="Logo" /></a>
 </p>
   <p align="center">La biblioteca de manejo versátil de números astronómicos en C.</p>
 
@@ -30,6 +30,6 @@ $ sh run-tests_unix.sh
 
 ## Documentación
 
-- Consigna: https://drive.google.com/file/d/1ROieFk5yjYR4HFBPBFCCWw8kOtCY3PIB/view?usp=sharing
+- [Material provisto por la facultad UTN FRBA](https://drive.google.com/file/d/1ROieFk5yjYR4HFBPBFCCWw8kOtCY3PIB/view?usp=sharing)
 - Bibliografía de Lenguaje de C: Functions and Program Structure de [K&R1988].
 
