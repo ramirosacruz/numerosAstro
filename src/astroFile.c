@@ -9,6 +9,7 @@ void show(NumeroAstronomico nro)
 {
   char *valorOriginal = obtenerSoloValor(nro);
   char *valorBanderas = obtenerBanderas(nro);
+  nro.entero += 2;
   printf("--------------------------------- \n VALOR CON FORMATO: %s|%s|  \n VALOR ORIGINAL: %s \n LONGITUD: %d \n ---------------------------------- \n", valorBanderas, valorOriginal, nro.entero, nro.longitudError);
 }
 
@@ -23,7 +24,6 @@ NumeroAstronomico readNA(FILE *flujo)
 
   return buff;
 }
-
 
 /**
  * @return A partir de un NA y un puntero a un archivo, escribe el NA en un archivo binario
