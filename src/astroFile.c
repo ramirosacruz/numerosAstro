@@ -57,7 +57,6 @@ NumeroAstronomico scanNA(FILE *flujo)
     numeroNuevo.longitudError = getTipoDeError(numeroNuevo);
     printError(numeroNuevo);
   }
-  fclose(flujo);
   return numeroNuevo;
 }
 
