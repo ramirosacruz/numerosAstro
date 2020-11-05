@@ -12,6 +12,7 @@ void imprimir(NumeroAstronomico nro);
 void sumaNA();
 void esMenorNA();
 void sonIgualesNA();
+void mostrarNA();
 
 int main()
 {
@@ -21,6 +22,7 @@ int main()
   printf("(1) Para saber si un numero es menor que otro.\n");
   printf("(2) Para saber si dos numeros son iguales.\n");
   printf("(3) Para sumar dos numeros.\n");
+  printf("(4) Mostrar numero.\n");
 
   do
   {
@@ -40,6 +42,10 @@ int main()
       sumaNA();
       verificacion = TRUE;
       break;
+    case 4:
+      mostrarNA();
+      verificacion = TRUE;
+      break;
     default:
       printf("\nIntroduzca una opcion valida\n");
       verificacion = FALSE;
@@ -49,6 +55,20 @@ int main()
 
   system("PAUSE");
   return 0;
+}
+
+void mostrarNA()
+{
+  int gruposEnPrimeraLinea;
+  NumeroAstronomico a;
+  FILE *flujo;
+  flujo = stdout;
+
+  a = ingresarNumeros();
+  printf("\n ingrese cantidad de grupos en primera linea \n");
+  scanf("%d", &gruposEnPrimeraLinea);
+  mostrar(a, gruposEnPrimeraLinea, flujo);
+  printf("\n");
 }
 
 void sumaNA()
@@ -182,11 +202,11 @@ NumeroAstronomico tercerOp()
   {
     printf("\n Escriba la cifra\n");
 
-    scanf("%d", cifra);
+    scanf("%d", &cifra);
 
     printf("\n Escriba la cantidad de ceros\n");
 
-    scanf("%d", cifra);
+    scanf("%d", &ceros);
 
     nro = crearDesdeCifraSeguidaDeCeros(cifra, ceros);
 
