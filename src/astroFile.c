@@ -9,8 +9,7 @@ void show(NumeroAstronomico nro)
 {
   char *valorOriginal = obtenerSoloValor(nro);
   char *valorBanderas = obtenerBanderas(nro);
-  nro.entero += 2;
-  printf("--------------------------------- \n VALOR CON FORMATO: %s|%s|  \n VALOR ORIGINAL: %s \n LONGITUD: %d \n ---------------------------------- \n", valorBanderas, valorOriginal, nro.entero, nro.longitudError);
+  printf("--------------------------------- \n VALOR CON FORMATO: %s|%s|  \n VALOR ORIGINAL: %s \n LONGITUD: %d \n ---------------------------------- \n", valorBanderas, valorOriginal, valorOriginal, nro.longitudError);
 }
 
 /**
