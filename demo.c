@@ -122,7 +122,7 @@ NumeroAstronomico ingresarNumeros()
       verificacion = TRUE;
       break;
     default:
-      printf("\nIntroduzca una opcion válida\n");
+      printf("\nIntroduzca una opcion valida\n");
       verificacion = FALSE;
       break;
     }
