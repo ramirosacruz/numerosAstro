@@ -97,11 +97,11 @@ NumeroAstronomico crearDesdeCadena(char *cadena)
 NumeroAstronomico crearDesdeCifraSeguidaDeCeros(int cifra, int cantCeros)
 {
     NumeroAstronomico numeroNuevo;
-    char cadenaAux[100];
+    char *cadenaAux = (char *)malloc(sizeof(cifra) + sizeof(char) * cantCeros);
     char *punt = cadenaAux;
     sprintf(cadenaAux, "%d", cifra);
     int longitud = longitudDeArreglo(cadenaAux) + cantCeros;
-    if (longitud >= 100)
+    if (longitud > 100)
     {
         numeroNuevo.longitudError = OVER_FLOW;
         printError(numeroNuevo);
@@ -117,7 +117,7 @@ NumeroAstronomico crearDesdeCifraSeguidaDeCeros(int cifra, int cantCeros)
         punt++;
         *punt = '\0';
     }
-    numeroNuevo.entero = cadenaAux;
+    numeroNuevo.entero = generarCadenaDeNumeroAstronomico(cadenaAux, 0, 0);
     numeroNuevo.longitudError = longitud;
     return numeroNuevo;
 }

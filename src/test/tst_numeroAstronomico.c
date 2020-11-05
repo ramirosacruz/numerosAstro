@@ -11,7 +11,7 @@ int main()
     printf("\n 🔃 Cargando Test... \n");
     FILE *flujo;
     flujo = stdout;
-    NumeroAstronomico a = crearAleatorio();
-    mostrar(a,6,flujo);
+    NumeroAstronomico a = crearDesdeCifraSeguidaDeCeros(125, 97);
+    mostrar(a, 4, flujo);
     printf("\n ✅ Todos los test corrieron  \n");
 }
