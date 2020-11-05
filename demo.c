@@ -30,19 +30,24 @@ int main()
     {
     case 1:
       esMenorNA();
+      verificacion = TRUE;
       break;
     case 2:
       sonIgualesNA();
+      verificacion = TRUE;
       break;
     case 3:
       sumaNA();
+      verificacion = TRUE;
       break;
     default:
-      printf("\nIntroduzca una opción válida\n");
+      printf("\nIntroduzca una opcion valida\n");
+      verificacion = FALSE;
       break;
     }
   } while (verificacion == FALSE);
 
+  system("PAUSE");
   return 0;
 }
 
@@ -52,6 +57,7 @@ void sumaNA()
   NumeroAstronomico b;
   NumeroAstronomico c;
   a = ingresarNumeros();
+  printf("\n ingrese otro numero \n");
   b = ingresarNumeros();
   c = sumar(a, b);
   show(c);
@@ -63,6 +69,7 @@ void esMenorNA()
   NumeroAstronomico b;
   int c;
   a = ingresarNumeros();
+  printf("\n ingrese otro numero \n");
   b = ingresarNumeros();
   c = esMenor(a, b);
   if (c)
@@ -77,6 +84,7 @@ void sonIgualesNA()
   NumeroAstronomico b;
   int c;
   a = ingresarNumeros();
+  printf("\n ingrese otro numero \n");
   b = ingresarNumeros();
   c = sonIguales(a, b);
   if (c)
@@ -92,9 +100,9 @@ NumeroAstronomico ingresarNumeros()
   NumeroAstronomico nro;
 
   printf("Presione... \n");
-  printf("(1) Crear un número astronómico a partir de cadena\n");
-  printf("(2) Crear un número astronómico aleatorio\n");
-  printf("(3) Crear un número astronómico desde cifras seguidas de cero\n");
+  printf("(1) Crear un numero astronomico a partir de cadena\n");
+  printf("(2) Crear un numero astronomico aleatorio\n");
+  printf("(3) Crear un numero astronomico desde cifras seguidas de cero\n");
   do
   {
     scanf("%d", &rta);
@@ -103,15 +111,18 @@ NumeroAstronomico ingresarNumeros()
     {
     case 1:
       nro = primerOp();
+      verificacion = TRUE;
       break;
     case 2:
       nro = segundaOp();
+      verificacion = TRUE;
       break;
     case 3:
       nro = tercerOp();
+      verificacion = TRUE;
       break;
     default:
-      printf("\nIntroduzca una opción válida\n");
+      printf("\nIntroduzca una opcion válida\n");
       verificacion = FALSE;
       break;
     }
@@ -144,6 +155,8 @@ NumeroAstronomico primerOp()
       verificacion = FALSE;
       printf("\n Vuelva a ingresar la cadena \n");
     }
+    else
+      verificacion = TRUE;
   } while (verificacion == FALSE);
 
   imprimir(nro);
@@ -182,6 +195,9 @@ NumeroAstronomico tercerOp()
       verificacion = FALSE;
       printf("\n Vuelva a ingresar los numeros \n");
     }
+    else
+      verificacion = TRUE;
+
   } while (verificacion == FALSE);
 
   imprimir(nro);
