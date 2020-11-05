@@ -149,33 +149,6 @@ NumeroAstronomico crearAleatorio()
 }
 
 /**
- * @return Genera un NA apartir del contenido de un archivo dado, este debe contener el numero con el formato: secuenciadedigitos#
- * */
-NumeroAstronomico scanFlujoDeTexto(FILE *flujo)
-{
-    char *cadenaAux = (char *)malloc(sizeof(flujo));
-    char *punt = cadenaAux;
-    do
-    {
-        *punt = fgetc(flujo);
-        punt++;
-        *punt = fgetc(flujo);
-        ungetc(*punt, flujo);
-    } while (*punt != '#');
-    *punt = '\0';
-    NumeroAstronomico numeroNuevo;
-    numeroNuevo.longitudError = longitudDeArreglo(cadenaAux);
-    numeroNuevo.entero = generarCadenaDeNumeroAstronomico(cadenaAux, 0, 0);
-    if (esError(numeroNuevo))
-    {
-        numeroNuevo.longitudError = getTipoDeError(numeroNuevo);
-        printError(numeroNuevo);
-    }
-    fclose(flujo);
-    return numeroNuevo;
-}
-
-/**
  * @return Recibe un numero, una cantidad de grupos en la primer linea  y un flujo igualado a stdout por lo que apunta a la pantalla de la consola. Su funcion es mostrar el numero en consola de forma tal que aparecen en la primer linea la cantidad dada de grupos de 3 numeros (salvo el primero que puede ser de 3, 2 o 1) separados por un punto, en las siguientes lineas se muestran una cantidad de 1 menos que la primera de grupos por linea (siempre que la longitud lo permita), y termina con una linea con la cantidad de grupos sobrantes si estos existiesen. 
  * */
 FILE *mostrar(NumeroAstronomico nro, int grupoEnPrimerLinea, FILE *flujo)

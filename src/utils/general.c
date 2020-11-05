@@ -2,17 +2,26 @@
 #include <stdlib.h>
 #include <time.h>
 
+/**
+ * @return A partir de un numero de tipo int devuelve ese mismo numero como un caracter
+*/
 char enteroACaracter(int numero)
 {
     return numero + '0';
 }
 
+/**
+ * @return A partir de un caracter devuelve el valor de este en ASCII menos 48, con este se asegura que cada vez que se le pase un numero como caracter, devuelve el valor entero de ese numero 
+*/
 int caracterAEntero(char caracter)
 {
     int x = caracter + 0;
     return x - 48;
-} //Esta funcion te devuelve el ASCII del caracter menos 48 asi que si pones letras o simbolos tambien te va a devolver un numero tenelo en cuenta.
+}
 
+/**
+ * @return A partir de un arreglo devuelve la longitud de este
+ */
 int longitudDeArreglo(const char *cadena)
 {
     int longitud = 0;

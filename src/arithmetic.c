@@ -11,7 +11,7 @@
 #include "./numeroAstronomico.h"
 
 /**
- * @return se evalua si primerNro es menor al segundoNro
+ * @return se evalua si primerNro es menor al segundoNro y devuelve TRUE(1) si lo es o FALSE(0) si no
 */
 int esMenor(NumeroAstronomico primerNro, NumeroAstronomico segundoNro)
 {
@@ -41,6 +41,10 @@ int esMenor(NumeroAstronomico primerNro, NumeroAstronomico segundoNro)
  *  1) tienen igualdad en cuanto longitud
  *  2) si los dígitos coinciden
 */
+
+/**
+ *@return A partir de dos NAs se fija si estos son iguales y devuelve TRUE(1) si lo son o FALSE(0) si no
+ */
 int sonIguales(NumeroAstronomico primerNro, NumeroAstronomico segundoNro)
 {
     if (primerNro.longitudError != segundoNro.longitudError)

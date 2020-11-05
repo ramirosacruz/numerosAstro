@@ -24,6 +24,9 @@ void writeNA(NumeroAstronomico nroAstronomico, FILE *flujo)
   return;
 }
 
+/**
+ * @return Genera un NA apartir de un puntero a un archivo, este debe contener el nuevo numero con el formato: secuenciadedigitos#
+ * */
 NumeroAstronomico scanNA(FILE *flujo)
 {
   char *cadenaAux = (char *)malloc(sizeof(flujo));
@@ -48,6 +51,9 @@ NumeroAstronomico scanNA(FILE *flujo)
   return numeroNuevo;
 }
 
+/**
+ * @return A partir de un NA y un puntero a un archivo, escribe el NA dado en el archivo apuntado con el formato: secuenciadedigitos#
+ * */
 void printNA(NumeroAstronomico nro, FILE *flujo)
 {
   nro.entero += 2;
