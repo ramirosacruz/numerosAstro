@@ -36,14 +36,12 @@ int esMenor(NumeroAstronomico primerNro, NumeroAstronomico segundoNro)
     }
 }
 
-/**
- * @return se determina el valor de verdad si primerNro y segundoNro si:
- *  1) tienen igualdad en cuanto longitud
- *  2) si los dígitos coinciden
-*/
 
 /**
  *@return A partir de dos NAs se fija si estos son iguales y devuelve TRUE(1) si lo son o FALSE(0) si no
+ * se determina el valor de verdad si primerNro y segundoNro si:
+ *  1) tienen igualdad en cuanto longitud
+ *  2) si los dígitos coinciden
  */
 int sonIguales(NumeroAstronomico primerNro, NumeroAstronomico segundoNro)
 {
