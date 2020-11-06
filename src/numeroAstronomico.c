@@ -17,6 +17,11 @@
 char *generarCadenaDeNumeroAstronomico(char *cadena, int carry, int overflow)
 {
     int longitudAbsoluta = longitudDeArreglo(cadena) + 2;
+    while (*cadena == '0')
+    {
+        cadena++;
+        longitudAbsoluta--;
+    }
     char *nuevaCadena = (char *)malloc(longitudAbsoluta * sizeof(char));
 
     nuevaCadena[0] = enteroACaracter(carry);
