@@ -98,13 +98,10 @@ NumeroAstronomico sumar(NumeroAstronomico primerNro, NumeroAstronomico segundoNr
         --primerNro.entero;
         --segundoNro.entero;
 
-        printf("&//////////\nLETRA 2 = %c   \nI = %d \n|||", *primerNro.entero, i);
-        printf("&//////////\nLETRA 1= %c   \nI = %d \n|||", *segundoNro.entero, i);
 
     }
 
     char* nuevaCadena = generarCadenaDeNumeroAstronomico(sumaEntero, 0, 0);
-    printf(" HHHH\nresulado = %s  |", nuevaCadena);
 
     NumeroAstronomico nuevoNa;
     nuevoNa.entero = nuevaCadena;
