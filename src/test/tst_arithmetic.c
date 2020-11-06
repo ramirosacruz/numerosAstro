@@ -69,7 +69,7 @@ void test_sumar()
 
     NumeroAstronomico suma_ef = crearDesdeCadena("2");
 
-    assert(!sonIguales(sumar(e, f), suma_ef));
+    assert(sonIguales(sumar(e, f), suma_ef));
 
     NumeroAstronomico g = crearDesdeCadena("9999999");
     NumeroAstronomico h = crearDesdeCadena("9999999");
