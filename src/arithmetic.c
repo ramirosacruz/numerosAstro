@@ -36,7 +36,6 @@ int esMenor(NumeroAstronomico primerNro, NumeroAstronomico segundoNro)
     }
 }
 
-
 /**
  *@return A partir de dos NAs se fija si estos son iguales y devuelve TRUE(1) si lo son o FALSE(0) si no
  * Además se determina el valor de verdad si primerNro y segundoNro si:
@@ -66,7 +65,7 @@ int sonIguales(NumeroAstronomico primerNro, NumeroAstronomico segundoNro)
 NumeroAstronomico sumar(NumeroAstronomico primerNro, NumeroAstronomico segundoNro)
 {
 
-    int longitudAbsoluta = max(primerNro.longitudError, segundoNro.longitudError) ;
+    int longitudAbsoluta = max(primerNro.longitudError, segundoNro.longitudError);
 
     char *sumaEntero;
 
@@ -74,14 +73,14 @@ NumeroAstronomico sumar(NumeroAstronomico primerNro, NumeroAstronomico segundoNr
 
     primerNro.entero += primerNro.longitudError + 1;
     segundoNro.entero += segundoNro.longitudError + 1;
-    
-    sumaEntero[longitudAbsoluta + 1] = '\0'; 
+
+    sumaEntero[longitudAbsoluta + 1] = '\0';
     int nuevaLongitud = 0;
     int carry = 0;
     for (int i = longitudAbsoluta; i >= 0; i--)
     {
-          int suma = caracterAEntero(*primerNro.entero) + caracterAEntero(*segundoNro.entero);
-        
+        int suma = caracterAEntero(*primerNro.entero) + caracterAEntero(*segundoNro.entero);
+
         if (suma + carry >= 10)
         {
             sumaEntero[i] = enteroACaracter(suma - 10 + carry);
@@ -89,22 +88,15 @@ NumeroAstronomico sumar(NumeroAstronomico primerNro, NumeroAstronomico segundoNr
         }
         else
         {
-            
+
             sumaEntero[i] = enteroACaracter(suma + carry);
             carry = 0;
-             
-        }  
-        
+        }
         --primerNro.entero;
         --segundoNro.entero;
-
-        printf("&//////////\nLETRA 2 = %c   \nI = %d \n|||", *primerNro.entero, i);
-        printf("&//////////\nLETRA 1= %c   \nI = %d \n|||", *segundoNro.entero, i);
-
     }
-
-    char* nuevaCadena = generarCadenaDeNumeroAstronomico(sumaEntero, 0, 0);
-    printf(" HHHH\nresulado = %s  |", nuevaCadena);
+    sumaEntero[longitudAbsoluta + 1] = '\0';
+    char *nuevaCadena = generarCadenaDeNumeroAstronomico(sumaEntero, 0, 0);
 
     NumeroAstronomico nuevoNa;
     nuevoNa.entero = nuevaCadena;
