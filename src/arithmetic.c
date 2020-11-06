@@ -39,7 +39,7 @@ int esMenor(NumeroAstronomico primerNro, NumeroAstronomico segundoNro)
 
 /**
  *@return A partir de dos NAs se fija si estos son iguales y devuelve TRUE(1) si lo son o FALSE(0) si no
- * se determina el valor de verdad si primerNro y segundoNro si:
+ * Además se determina el valor de verdad si primerNro y segundoNro si:
  *  1) tienen igualdad en cuanto longitud
  *  2) si los dígitos coinciden
  */
@@ -66,42 +66,48 @@ int sonIguales(NumeroAstronomico primerNro, NumeroAstronomico segundoNro)
 NumeroAstronomico sumar(NumeroAstronomico primerNro, NumeroAstronomico segundoNro)
 {
 
-    int longitudAbsoluta = max(primerNro.longitudError, segundoNro.longitudError);
-
-    if (primerNro.longitudError == segundoNro.longitudError)
-        if (enteroACaracter(primerNro.entero[3]) + enteroACaracter(primerNro.entero[3]) >= 10)
-            longitudAbsoluta++;
+    int longitudAbsoluta = max(primerNro.longitudError, segundoNro.longitudError) ;
 
     char *sumaEntero;
-    sumaEntero = (char *)malloc((longitudAbsoluta + 2) * sizeof(char));
-    sumaEntero[0] = '0';
-    sumaEntero[1] = '0';
+
+    sumaEntero = (char *)malloc((longitudAbsoluta + 1) * sizeof(char));
 
     primerNro.entero += primerNro.longitudError + 1;
     segundoNro.entero += segundoNro.longitudError + 1;
-
-    for (int i = longitudAbsoluta - 1 + 2; i >= 2; i--)
+    
+    sumaEntero[longitudAbsoluta + 1] = '\0'; 
+    int nuevaLongitud = 0;
+    int carry = 0;
+    for (int i = longitudAbsoluta; i >= 0; i--)
     {
-        int suma = caracterAEntero(*primerNro.entero) + caracterAEntero(*segundoNro.entero);
-
-        int carry = caracterAEntero(sumaEntero[0]);
-
-        if (suma >= 10)
+          int suma = caracterAEntero(*primerNro.entero) + caracterAEntero(*segundoNro.entero);
+        
+        if (suma + carry >= 10)
         {
             sumaEntero[i] = enteroACaracter(suma - 10 + carry);
-            sumaEntero[0] = '1';
+            carry = 1;
         }
         else
         {
+            
             sumaEntero[i] = enteroACaracter(suma + carry);
-            sumaEntero[0] = '0';
-        }
+            carry = 0;
+             
+        }  
+        
         --primerNro.entero;
         --segundoNro.entero;
+
+        printf("&//////////\nLETRA 2 = %c   \nI = %d \n|||", *primerNro.entero, i);
+        printf("&//////////\nLETRA 1= %c   \nI = %d \n|||", *segundoNro.entero, i);
+
     }
 
+    char* nuevaCadena = generarCadenaDeNumeroAstronomico(sumaEntero, 0, 0);
+    printf(" HHHH\nresulado = %s  |", nuevaCadena);
+
     NumeroAstronomico nuevoNa;
-    nuevoNa.entero = sumaEntero;
-    nuevoNa.longitudError = longitudAbsoluta;
+    nuevoNa.entero = nuevaCadena;
+    nuevoNa.longitudError = longitudDeArreglo(nuevaCadena) - 2;
     return nuevoNa;
 }

@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://ramirosacruz.github.io/numerosAstro/" target="blank"><img src="https://github.com/ramirosacruz/numerosAstro/blob/resource/portada-git.png?raw=true" width="920" alt="Logo" /></a>
+   <img src="https://github.com/ramirosacruz/numerosAstro/blob/resource/portada-git.png?raw=true" width="920" alt="Logo" />
 </p>
   <p align="center">La biblioteca de manejo versátil de números astronómicos en C.</p>
 

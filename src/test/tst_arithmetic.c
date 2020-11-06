@@ -49,20 +49,21 @@ void test_esMenor()
 
 void test_sumar()
 {
+   
+
+    NumeroAstronomico c = crearDesdeCadena("20");
+    NumeroAstronomico d = crearDesdeCadena("20");
+
+    NumeroAstronomico suma_cd = crearDesdeCadena("40");
+    show(sumar(c, d));
+    assert(sonIguales(sumar(c, d), suma_cd));
+    
     NumeroAstronomico a = crearDesdeCadena("953");
     NumeroAstronomico b = crearDesdeCadena("362");
 
     NumeroAstronomico suma_ab = crearDesdeCadena("1315");
 
     assert(sonIguales(sumar(a, b), suma_ab));
-
-    NumeroAstronomico c = crearDesdeCadena("203");
-    NumeroAstronomico d = crearDesdeCadena("402");
-
-    NumeroAstronomico suma_cd = crearDesdeCadena("405");
-
-    assert(!sonIguales(sumar(c, d), suma_cd));
-
     NumeroAstronomico e = crearDesdeCadena("1");
     NumeroAstronomico f = crearDesdeCadena("1");
 
@@ -75,5 +76,11 @@ void test_sumar()
 
     NumeroAstronomico suma_gh = crearDesdeCadena("19999999");
 
-    assert(!sonIguales(sumar(g, h), suma_gh));
+
+    NumeroAstronomico x = crearDesdeCadena("99");
+    NumeroAstronomico y = crearDesdeCadena("1");
+
+    NumeroAstronomico suma_xy = crearDesdeCadena("100");
+    show( sumar(x,y));
+    assert(sonIguales(sumar(x, y), suma_xy));
 }
